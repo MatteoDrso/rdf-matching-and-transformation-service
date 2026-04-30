@@ -1,0 +1,34 @@
+name: rdf_transform
+description: Transform tabular biodiversity records into RDF triples per a mapping schema
+keywords:
+  - rdf
+  - biodiversity
+  - darwin core
+  - abcd
+  - transformation
+
+input:
+  - meta:
+      type: map
+      description: Groovy Map with sample id (e.g. [ id: 'sample1' ])
+  - dataset:
+      type: file
+      description: Input dataset (CSV or JSON)
+      pattern: "*.{csv,json}"
+  - schema:
+      type: file
+      description: Mapping schema (JSON-LD or Turtle)
+      pattern: "*.{jsonld,ttl}"
+
+output:
+  - rdf:
+      type: file
+      description: Generated RDF triples
+      pattern: "*.{ttl,jsonld}"
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+
+authors:
+  - "SP_WP8 SS26 — InfAI / FU Berlin"

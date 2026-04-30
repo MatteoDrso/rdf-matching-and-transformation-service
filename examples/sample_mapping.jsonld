@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "dwc": "http://rs.tdwg.org/dwc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  },
+  "@type": "MappingSchema",
+  "subjectClass": "dwc:Occurrence",
+  "subjectIdField": "id",
+  "mappings": [
+    { "source": "id",                 "target": "dwc:occurrenceID" },
+    { "source": "scientificName",     "target": "dwc:scientificName" },
+    { "source": "decimalLatitude",    "target": "dwc:decimalLatitude" },
+    { "source": "decimalLongitude",   "target": "dwc:decimalLongitude" },
+    { "source": "eventDate",          "target": "dwc:eventDate" },
+    { "source": "recordedBy",         "target": "dwc:recordedBy" }
+  ]
+}
