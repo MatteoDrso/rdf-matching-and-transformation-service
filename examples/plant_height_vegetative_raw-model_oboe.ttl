@@ -1,0 +1,1375 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix metadata: <http://data.bioontology.org/metadata/> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix oboe-core: <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns: <http://creativecommons.org/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node1imp7hn1lx1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "plant_height_vegetative_raw_germany_20.csv" ;
+	km-dev:modelPublicationTime "1742456020022"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"TaxonID\"}],[{\"columnName\":\"DatasetID\"}],[{\"columnName\":\"Dataset\"}],[{\"columnName\":\"ObsDataID\"}],[{\"columnName\":\"TraitID\"}],[{\"columnName\":\"AccSpeciesName\"}],[{\"columnName\":\"TraitName\"}],[{\"columnName\":\"UnitName\"}],[{\"columnName\":\"ObservationID\"}],[{\"columnName\":\"StdValue\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"UnitURI\"}],[{\"columnName\":\"DatasetID\"}],[{\"columnName\":\"TaxonURI\"}],[{\"columnName\":\"Dataset\"}],[{\"columnName\":\"ObsDataID\"}],[{\"columnName\":\"TraitID\"}],[{\"columnName\":\"AccSpeciesName\"}],[{\"columnName\":\"TraitName\"}],[{\"columnName\":\"ObservationID\"}],[{\"columnName\":\"StdValue\"}]]" ;
+	km-dev:hasModelLabel "plant_height_vegetative_raw_germany_20.csv" ;
+	km-dev:hasBaseURI "http://ecoinformatics.org/oboe/data/" ;
+	km-dev:hasWorksheetHistory """[
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"TaxonID\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"TaxonURI\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return \\\"http://www.catalogueoflife.org/data/taxon/\\\" + getValue(\\\"TaxonID\\\")\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"TaxonID\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"TaxonURI\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"UnitName\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"UnitURI\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return \\\"http://qudt.org/vocab/unit/\\\" + getValue(\\\"UnitName\\\").capitalize()\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"UnitName\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"UnitURI\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SetWorksheetPropertiesCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"properties\",
+                \"type\": \"other\",
+                \"value\": {
+                    \"graphLabel\": \"\",
+                    \"hasBaseURI\": true,
+                    \"baseURI\": \"http://ecoinformatics.org/oboe/data/\",
+                    \"hasPrefix\": false,
+                    \"hasServiceProperties\": false
+                }
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"ObservationID\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"oboe-core:Observation1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"ObservationID\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"ObservationID\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"ObsDataID\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"oboe-core:Measurement1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"ObsDataID\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"ObsDataID\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"DatasetID\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"oboe-core:ObservationCollection1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"DatasetID\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"DatasetID\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetSemanticTypeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Dataset\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#label\",
+                    \"DomainLabel\": \"oboe-core:ObservationCollection1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Dataset\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Dataset\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"TaxonURI\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"oboe-core:Entity1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"TaxonURI\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"TaxonURI\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetSemanticTypeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"AccSpeciesName\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#label\",
+                    \"DomainLabel\": \"oboe-core:Entity1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"AccSpeciesName\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"AccSpeciesName\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"TraitID\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"oboe-core:Characteristic1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"TraitID\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"TraitID\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetSemanticTypeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"TraitName\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#label\",
+                    \"DomainLabel\": \"oboe-core:Characteristic1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"TraitName\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"TraitName\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"UnitURI\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"oboe-core:Unit1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"UnitURI\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"UnitURI\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetSemanticTypeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"StdValue\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue\",
+                    \"DomainId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue1\",
+                    \"isPrimary\": true,
+                    \"isProvenance\": false,
+                    \"FullType\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode\",
+                    \"DomainLabel\": \"oboe-core:MeasuredValue1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"language\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"StdValue\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"StdValue\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"AddLinkCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"edge\",
+                \"type\": \"other\",
+                \"value\": {
+                    \"edgeTargetId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement1\",
+                    \"edgeId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement\",
+                    \"edgeTargetUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement\",
+                    \"edgeSourceId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation1\",
+                    \"edgeSourceUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation\"
+                }
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"AddLinkCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"edge\",
+                \"type\": \"other\",
+                \"value\": {
+                    \"edgeTargetId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation1\",
+                    \"edgeId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember\",
+                    \"edgeTargetUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation\",
+                    \"edgeSourceId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection1\",
+                    \"edgeSourceUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection\"
+                }
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"AddLinkCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"edge\",
+                \"type\": \"other\",
+                \"value\": {
+                    \"edgeTargetId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity1\",
+                    \"edgeId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity\",
+                    \"edgeTargetUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity\",
+                    \"edgeSourceId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation1\",
+                    \"edgeSourceUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation\"
+                }
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"AddLinkCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"edge\",
+                \"type\": \"other\",
+                \"value\": {
+                    \"edgeTargetId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic1\",
+                    \"edgeId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic\",
+                    \"edgeTargetUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic\",
+                    \"edgeSourceId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement1\",
+                    \"edgeSourceUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement\"
+                }
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"AddLinkCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"edge\",
+                \"type\": \"other\",
+                \"value\": {
+                    \"edgeTargetId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit1\",
+                    \"edgeId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard\",
+                    \"edgeTargetUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit\",
+                    \"edgeSourceId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement1\",
+                    \"edgeSourceUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement\"
+                }
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"AddLinkCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"edge\",
+                \"type\": \"other\",
+                \"value\": {
+                    \"edgeTargetId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue1\",
+                    \"edgeId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue\",
+                    \"edgeTargetUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue\",
+                    \"edgeSourceId\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement1\",
+                    \"edgeSourceUri\": \"http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement\"
+                }
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    }
+]""" .
+
+km-dev:TriplesMap_b28e28ac-8c88-44ea-9b09-c2b8949d3de9 a rr:TriplesMap .
+
+_:node1imp7hn1lx1 km-dev:hasTriplesMap km-dev:TriplesMap_b28e28ac-8c88-44ea-9b09-c2b8949d3de9 .
+
+km-dev:TriplesMap_b28e28ac-8c88-44ea-9b09-c2b8949d3de9 km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx2 rr:tableName "plant_height_vegetative_raw_germany_20.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasLogicalTable _:node1imp7hn1lx2 .
+
+km-dev:TriplesMap_b28e28ac-8c88-44ea-9b09-c2b8949d3de9 rr:logicalTable _:node1imp7hn1lx2 ;
+	rr:subjectMap _:node1imp7hn1lx3 .
+
+_:node1imp7hn1lx1 km-dev:hasSubjectMap _:node1imp7hn1lx3 .
+
+_:node1imp7hn1lx3 km-dev:isPartOfMapping _:node1imp7hn1lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement1" ;
+	rr:class oboe-core:Measurement ;
+	rr:template "{ObsDataID}" .
+
+km-dev:PredicateObjectMap_a1a7f2e2-a811-47fa-b201-491751058ed0 rr:predicate oboe-core:ofCharacteristic .
+
+km-dev:RefObjectMap_5e462b6d-6e39-4caa-b63a-f6e66f689625 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_a72b989b-02fe-4b32-b5f5-b1884838135a ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap km-dev:RefObjectMap_5e462b6d-6e39-4caa-b63a-f6e66f689625 .
+
+km-dev:PredicateObjectMap_a1a7f2e2-a811-47fa-b201-491751058ed0 rr:objectMap km-dev:RefObjectMap_5e462b6d-6e39-4caa-b63a-f6e66f689625 .
+
+km-dev:TriplesMap_b28e28ac-8c88-44ea-9b09-c2b8949d3de9 rr:predicateObjectMap km-dev:PredicateObjectMap_a1a7f2e2-a811-47fa-b201-491751058ed0 .
+
+km-dev:PredicateObjectMap_a1a7f2e2-a811-47fa-b201-491751058ed0 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a1a7f2e2-a811-47fa-b201-491751058ed0 .
+
+km-dev:PredicateObjectMap_7b119e9b-8729-467d-ab7d-5e83e12f9960 rr:predicate oboe-core:hasValue .
+
+km-dev:RefObjectMap_1873dda8-e5a4-45a5-b33e-796a52a92d9e a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_9e718de5-4310-4aa9-9010-a2b2912d71a6 ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap km-dev:RefObjectMap_1873dda8-e5a4-45a5-b33e-796a52a92d9e .
+
+km-dev:PredicateObjectMap_7b119e9b-8729-467d-ab7d-5e83e12f9960 rr:objectMap km-dev:RefObjectMap_1873dda8-e5a4-45a5-b33e-796a52a92d9e .
+
+km-dev:TriplesMap_b28e28ac-8c88-44ea-9b09-c2b8949d3de9 rr:predicateObjectMap km-dev:PredicateObjectMap_7b119e9b-8729-467d-ab7d-5e83e12f9960 .
+
+km-dev:PredicateObjectMap_7b119e9b-8729-467d-ab7d-5e83e12f9960 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_7b119e9b-8729-467d-ab7d-5e83e12f9960 .
+
+km-dev:PredicateObjectMap_7860d737-9a92-4138-92c0-6e9e25ce4a13 rr:predicate oboe-core:usesStandard .
+
+km-dev:RefObjectMap_7e01d134-b4e9-46ff-ae87-f6c478dc7e34 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_5b6fa941-d0d7-4d81-bdf0-6c8f1c9ad173 ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap km-dev:RefObjectMap_7e01d134-b4e9-46ff-ae87-f6c478dc7e34 .
+
+km-dev:PredicateObjectMap_7860d737-9a92-4138-92c0-6e9e25ce4a13 rr:objectMap km-dev:RefObjectMap_7e01d134-b4e9-46ff-ae87-f6c478dc7e34 .
+
+km-dev:TriplesMap_b28e28ac-8c88-44ea-9b09-c2b8949d3de9 rr:predicateObjectMap km-dev:PredicateObjectMap_7860d737-9a92-4138-92c0-6e9e25ce4a13 .
+
+km-dev:PredicateObjectMap_7860d737-9a92-4138-92c0-6e9e25ce4a13 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_7860d737-9a92-4138-92c0-6e9e25ce4a13 .
+
+km-dev:TriplesMap_a72b989b-02fe-4b32-b5f5-b1884838135a a rr:TriplesMap .
+
+_:node1imp7hn1lx1 km-dev:hasTriplesMap km-dev:TriplesMap_a72b989b-02fe-4b32-b5f5-b1884838135a .
+
+km-dev:TriplesMap_a72b989b-02fe-4b32-b5f5-b1884838135a km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx4 rr:tableName "plant_height_vegetative_raw_germany_20.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasLogicalTable _:node1imp7hn1lx4 .
+
+km-dev:TriplesMap_a72b989b-02fe-4b32-b5f5-b1884838135a rr:logicalTable _:node1imp7hn1lx4 ;
+	rr:subjectMap _:node1imp7hn1lx5 .
+
+_:node1imp7hn1lx1 km-dev:hasSubjectMap _:node1imp7hn1lx5 .
+
+_:node1imp7hn1lx5 km-dev:isPartOfMapping _:node1imp7hn1lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic1" ;
+	rr:class oboe-core:Characteristic ;
+	rr:template "{TraitID}" .
+
+km-dev:PredicateObjectMap_8d64f9a3-108d-4dd7-896d-f8757c2c7a6d rr:predicate rdfs:label .
+
+_:node1imp7hn1lx6 rr:column "TraitName" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap _:node1imp7hn1lx6 .
+
+km-dev:PredicateObjectMap_8d64f9a3-108d-4dd7-896d-f8757c2c7a6d rr:objectMap _:node1imp7hn1lx6 .
+
+km-dev:TriplesMap_a72b989b-02fe-4b32-b5f5-b1884838135a rr:predicateObjectMap km-dev:PredicateObjectMap_8d64f9a3-108d-4dd7-896d-f8757c2c7a6d .
+
+km-dev:PredicateObjectMap_8d64f9a3-108d-4dd7-896d-f8757c2c7a6d a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_8d64f9a3-108d-4dd7-896d-f8757c2c7a6d .
+
+km-dev:TriplesMap_9e718de5-4310-4aa9-9010-a2b2912d71a6 a rr:TriplesMap .
+
+_:node1imp7hn1lx1 km-dev:hasTriplesMap km-dev:TriplesMap_9e718de5-4310-4aa9-9010-a2b2912d71a6 .
+
+km-dev:TriplesMap_9e718de5-4310-4aa9-9010-a2b2912d71a6 km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx7 rr:tableName "plant_height_vegetative_raw_germany_20.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasLogicalTable _:node1imp7hn1lx7 .
+
+km-dev:TriplesMap_9e718de5-4310-4aa9-9010-a2b2912d71a6 rr:logicalTable _:node1imp7hn1lx7 ;
+	rr:subjectMap _:node1imp7hn1lx8 .
+
+_:node1imp7hn1lx1 km-dev:hasSubjectMap _:node1imp7hn1lx8 .
+
+_:node1imp7hn1lx8 km-dev:isPartOfMapping _:node1imp7hn1lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue1" ;
+	rr:class oboe-core:MeasuredValue ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "oboe-core:MeasuredValue1" .
+
+km-dev:PredicateObjectMap_c80a617a-6e49-4d8e-b53c-18a8be9c66fa rr:predicate oboe-core:hasCode .
+
+_:node1imp7hn1lx9 rr:column "StdValue" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap _:node1imp7hn1lx9 .
+
+km-dev:PredicateObjectMap_c80a617a-6e49-4d8e-b53c-18a8be9c66fa rr:objectMap _:node1imp7hn1lx9 .
+
+km-dev:TriplesMap_9e718de5-4310-4aa9-9010-a2b2912d71a6 rr:predicateObjectMap km-dev:PredicateObjectMap_c80a617a-6e49-4d8e-b53c-18a8be9c66fa .
+
+km-dev:PredicateObjectMap_c80a617a-6e49-4d8e-b53c-18a8be9c66fa a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c80a617a-6e49-4d8e-b53c-18a8be9c66fa .
+
+km-dev:TriplesMap_5b6fa941-d0d7-4d81-bdf0-6c8f1c9ad173 a rr:TriplesMap .
+
+_:node1imp7hn1lx1 km-dev:hasTriplesMap km-dev:TriplesMap_5b6fa941-d0d7-4d81-bdf0-6c8f1c9ad173 .
+
+km-dev:TriplesMap_5b6fa941-d0d7-4d81-bdf0-6c8f1c9ad173 km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx10 rr:tableName "plant_height_vegetative_raw_germany_20.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasLogicalTable _:node1imp7hn1lx10 .
+
+km-dev:TriplesMap_5b6fa941-d0d7-4d81-bdf0-6c8f1c9ad173 rr:logicalTable _:node1imp7hn1lx10 ;
+	rr:subjectMap _:node1imp7hn1lx11 .
+
+_:node1imp7hn1lx1 km-dev:hasSubjectMap _:node1imp7hn1lx11 .
+
+_:node1imp7hn1lx11 km-dev:isPartOfMapping _:node1imp7hn1lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit1" ;
+	rr:class oboe-core:Unit ;
+	rr:template "{UnitURI}" .
+
+km-dev:TriplesMap_bdc0e236-7321-4aa8-bacd-530c977afa39 a rr:TriplesMap .
+
+_:node1imp7hn1lx1 km-dev:hasTriplesMap km-dev:TriplesMap_bdc0e236-7321-4aa8-bacd-530c977afa39 .
+
+km-dev:TriplesMap_bdc0e236-7321-4aa8-bacd-530c977afa39 km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx12 rr:tableName "plant_height_vegetative_raw_germany_20.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasLogicalTable _:node1imp7hn1lx12 .
+
+km-dev:TriplesMap_bdc0e236-7321-4aa8-bacd-530c977afa39 rr:logicalTable _:node1imp7hn1lx12 ;
+	rr:subjectMap _:node1imp7hn1lx13 .
+
+_:node1imp7hn1lx1 km-dev:hasSubjectMap _:node1imp7hn1lx13 .
+
+_:node1imp7hn1lx13 km-dev:isPartOfMapping _:node1imp7hn1lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation1" ;
+	rr:class oboe-core:Observation ;
+	rr:template "{ObservationID}" .
+
+km-dev:PredicateObjectMap_f1e1f232-76cd-4cd8-8b9a-4902491e9e6e rr:predicate oboe-core:ofEntity .
+
+km-dev:RefObjectMap_3e71ef00-712b-41d9-8d6a-c7232cb1a2e8 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_bac07ec5-c48d-4477-817e-c08b7561d98a ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap km-dev:RefObjectMap_3e71ef00-712b-41d9-8d6a-c7232cb1a2e8 .
+
+km-dev:PredicateObjectMap_f1e1f232-76cd-4cd8-8b9a-4902491e9e6e rr:objectMap km-dev:RefObjectMap_3e71ef00-712b-41d9-8d6a-c7232cb1a2e8 .
+
+km-dev:TriplesMap_bdc0e236-7321-4aa8-bacd-530c977afa39 rr:predicateObjectMap km-dev:PredicateObjectMap_f1e1f232-76cd-4cd8-8b9a-4902491e9e6e .
+
+km-dev:PredicateObjectMap_f1e1f232-76cd-4cd8-8b9a-4902491e9e6e a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f1e1f232-76cd-4cd8-8b9a-4902491e9e6e .
+
+km-dev:PredicateObjectMap_50e1af89-1cf8-4b7b-952a-c72f7d0a8f34 rr:predicate oboe-core:hasMeasurement .
+
+km-dev:RefObjectMap_b2bd219d-d20e-4a73-aab2-c6787aa7c6ee a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_b28e28ac-8c88-44ea-9b09-c2b8949d3de9 ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap km-dev:RefObjectMap_b2bd219d-d20e-4a73-aab2-c6787aa7c6ee .
+
+km-dev:PredicateObjectMap_50e1af89-1cf8-4b7b-952a-c72f7d0a8f34 rr:objectMap km-dev:RefObjectMap_b2bd219d-d20e-4a73-aab2-c6787aa7c6ee .
+
+km-dev:TriplesMap_bdc0e236-7321-4aa8-bacd-530c977afa39 rr:predicateObjectMap km-dev:PredicateObjectMap_50e1af89-1cf8-4b7b-952a-c72f7d0a8f34 .
+
+km-dev:PredicateObjectMap_50e1af89-1cf8-4b7b-952a-c72f7d0a8f34 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_50e1af89-1cf8-4b7b-952a-c72f7d0a8f34 .
+
+km-dev:TriplesMap_bac07ec5-c48d-4477-817e-c08b7561d98a a rr:TriplesMap .
+
+_:node1imp7hn1lx1 km-dev:hasTriplesMap km-dev:TriplesMap_bac07ec5-c48d-4477-817e-c08b7561d98a .
+
+km-dev:TriplesMap_bac07ec5-c48d-4477-817e-c08b7561d98a km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx14 rr:tableName "plant_height_vegetative_raw_germany_20.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasLogicalTable _:node1imp7hn1lx14 .
+
+km-dev:TriplesMap_bac07ec5-c48d-4477-817e-c08b7561d98a rr:logicalTable _:node1imp7hn1lx14 ;
+	rr:subjectMap _:node1imp7hn1lx15 .
+
+_:node1imp7hn1lx1 km-dev:hasSubjectMap _:node1imp7hn1lx15 .
+
+_:node1imp7hn1lx15 km-dev:isPartOfMapping _:node1imp7hn1lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity1" ;
+	rr:class oboe-core:Entity ;
+	rr:template "http://www.catalogueoflife.org/data/taxon/{TaxonID}" .
+
+km-dev:PredicateObjectMap_278ec14a-b079-4b52-99e2-16a5efc763bb rr:predicate rdfs:label .
+
+_:node1imp7hn1lx16 rr:column "AccSpeciesName" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap _:node1imp7hn1lx16 .
+
+km-dev:PredicateObjectMap_278ec14a-b079-4b52-99e2-16a5efc763bb rr:objectMap _:node1imp7hn1lx16 .
+
+km-dev:TriplesMap_bac07ec5-c48d-4477-817e-c08b7561d98a rr:predicateObjectMap km-dev:PredicateObjectMap_278ec14a-b079-4b52-99e2-16a5efc763bb .
+
+km-dev:PredicateObjectMap_278ec14a-b079-4b52-99e2-16a5efc763bb a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_278ec14a-b079-4b52-99e2-16a5efc763bb .
+
+km-dev:TriplesMap_12f045e6-a12c-4af0-a9c1-a953eb995799 a rr:TriplesMap .
+
+_:node1imp7hn1lx1 km-dev:hasTriplesMap km-dev:TriplesMap_12f045e6-a12c-4af0-a9c1-a953eb995799 .
+
+km-dev:TriplesMap_12f045e6-a12c-4af0-a9c1-a953eb995799 km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx17 rr:tableName "plant_height_vegetative_raw_germany_20.csv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasLogicalTable _:node1imp7hn1lx17 .
+
+km-dev:TriplesMap_12f045e6-a12c-4af0-a9c1-a953eb995799 rr:logicalTable _:node1imp7hn1lx17 ;
+	rr:subjectMap _:node1imp7hn1lx18 .
+
+_:node1imp7hn1lx1 km-dev:hasSubjectMap _:node1imp7hn1lx18 .
+
+_:node1imp7hn1lx18 km-dev:isPartOfMapping _:node1imp7hn1lx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection1" ;
+	rr:class oboe-core:ObservationCollection ;
+	rr:template "{DatasetID}" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_a8349962-7975-4620-b427-698019808cdb rr:predicate oboe-core:hasMember .
+
+km-dev:RefObjectMap_ddc82aac-18c2-4182-a696-45277c1b4db9 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_bdc0e236-7321-4aa8-bacd-530c977afa39 ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap km-dev:RefObjectMap_ddc82aac-18c2-4182-a696-45277c1b4db9 .
+
+km-dev:PredicateObjectMap_a8349962-7975-4620-b427-698019808cdb rr:objectMap km-dev:RefObjectMap_ddc82aac-18c2-4182-a696-45277c1b4db9 .
+
+km-dev:TriplesMap_12f045e6-a12c-4af0-a9c1-a953eb995799 rr:predicateObjectMap km-dev:PredicateObjectMap_a8349962-7975-4620-b427-698019808cdb .
+
+km-dev:PredicateObjectMap_a8349962-7975-4620-b427-698019808cdb a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a8349962-7975-4620-b427-698019808cdb .
+
+km-dev:PredicateObjectMap_9df0fafe-8822-4942-84b2-bb6fd198ef93 rr:predicate rdfs:label .
+
+_:node1imp7hn1lx19 rr:column "Dataset" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasObjectMap _:node1imp7hn1lx19 .
+
+km-dev:PredicateObjectMap_9df0fafe-8822-4942-84b2-bb6fd198ef93 rr:objectMap _:node1imp7hn1lx19 .
+
+km-dev:TriplesMap_12f045e6-a12c-4af0-a9c1-a953eb995799 rr:predicateObjectMap km-dev:PredicateObjectMap_9df0fafe-8822-4942-84b2-bb6fd198ef93 .
+
+km-dev:PredicateObjectMap_9df0fafe-8822-4942-84b2-bb6fd198ef93 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1imp7hn1lx1 .
+
+_:node1imp7hn1lx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_9df0fafe-8822-4942-84b2-bb6fd198ef93 .

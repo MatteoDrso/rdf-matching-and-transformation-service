@@ -1,0 +1,360 @@
+<http://ecoinformatics.org/oboe/data/59505961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+_:oboe-core_MeasuredValue1_c50a392c4ba467984e9c397de2a9789bed127b45_N66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/59505961> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/6091662> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://www.catalogueoflife.org/data/taxon/B3VY2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://www.catalogueoflife.org/data/taxon/B3VY2> <http://www.w3.org/2000/01/rdf-schema#label> "Leontodon hispidus" .
+_:oboe-core_MeasuredValue1_c50a392c4ba467984e9c397de2a9789bed127b45_N66 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.23" .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6091662> .
+<http://ecoinformatics.org/oboe/data/6091662> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59505961> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/59505961> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/6091662> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/B3VY2> .
+<http://ecoinformatics.org/oboe/data/59505961> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_c50a392c4ba467984e9c397de2a9789bed127b45_N66 .
+
+<http://ecoinformatics.org/oboe/data/13590960> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_48026248575be074288e0b8334c8383a52f12906_N98 .
+<http://www.catalogueoflife.org/data/taxon/4TT2S> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/13590960> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/1797347> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/4TT2S> .
+<http://ecoinformatics.org/oboe/data/1797347> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/251> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/1797347> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/13590960> .
+_:oboe-core_MeasuredValue1_48026248575be074288e0b8334c8383a52f12906_N98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/251> <http://www.w3.org/2000/01/rdf-schema#label> "The Xylem/Phloem Database" .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+_:oboe-core_MeasuredValue1_48026248575be074288e0b8334c8383a52f12906_N98 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.8" .
+<http://ecoinformatics.org/oboe/data/13590960> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/251> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/1797347> .
+<http://ecoinformatics.org/oboe/data/13590960> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://www.catalogueoflife.org/data/taxon/4TT2S> <http://www.w3.org/2000/01/rdf-schema#label> "Ruta graveolens" .
+
+_:oboe-core_MeasuredValue1_d59267eca93c17772307abd3541a8801bb5fa3d3_N130 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/2950667> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/27087409> .
+<http://ecoinformatics.org/oboe/data/428> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/2950667> .
+<http://ecoinformatics.org/oboe/data/2950667> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/27087409> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/27087409> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_d59267eca93c17772307abd3541a8801bb5fa3d3_N130 .
+<http://www.catalogueoflife.org/data/taxon/3F6PX> <http://www.w3.org/2000/01/rdf-schema#label> "Galium verum" .
+<http://ecoinformatics.org/oboe/data/2950667> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/3F6PX> .
+<http://www.catalogueoflife.org/data/taxon/3F6PX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/27087409> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/2000/01/rdf-schema#label> "Trait and biomass data 2014 and 2015 of the BE_LOW project" .
+<http://ecoinformatics.org/oboe/data/27087409> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+_:oboe-core_MeasuredValue1_d59267eca93c17772307abd3541a8801bb5fa3d3_N130 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.02" .
+
+<http://ecoinformatics.org/oboe/data/27066179> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/2950084> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/27066179> .
+_:oboe-core_MeasuredValue1_180505679cfe0cca79bae51fdda0296b7cd9c493_N162 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.1" .
+<http://www.catalogueoflife.org/data/taxon/C56N> <http://www.w3.org/2000/01/rdf-schema#label> "Alopecurus pratensis" .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/2950084> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/27066179> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/2950084> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/C56N> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/2000/01/rdf-schema#label> "Trait and biomass data 2014 and 2015 of the BE_LOW project" .
+_:oboe-core_MeasuredValue1_180505679cfe0cca79bae51fdda0296b7cd9c493_N162 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/27066179> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/27066179> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_180505679cfe0cca79bae51fdda0296b7cd9c493_N162 .
+<http://ecoinformatics.org/oboe/data/428> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/2950084> .
+<http://www.catalogueoflife.org/data/taxon/C56N> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+
+<http://ecoinformatics.org/oboe/data/59411683> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+_:oboe-core_MeasuredValue1_98250286db92ccc336dc6f622c10c8bc09286693_N194 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/59411683> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/6086204> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/6086204> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59411683> .
+<http://www.catalogueoflife.org/data/taxon/C56N> <http://www.w3.org/2000/01/rdf-schema#label> "Alopecurus pratensis" .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6086204> .
+<http://ecoinformatics.org/oboe/data/59411683> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/59411683> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_98250286db92ccc336dc6f622c10c8bc09286693_N194 .
+_:oboe-core_MeasuredValue1_98250286db92ccc336dc6f622c10c8bc09286693_N194 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.3" .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://www.catalogueoflife.org/data/taxon/C56N> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/6086204> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/C56N> .
+
+<http://ecoinformatics.org/oboe/data/6087372> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/3M7ZD> .
+<http://ecoinformatics.org/oboe/data/6087372> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59431472> .
+<http://www.catalogueoflife.org/data/taxon/3M7ZD> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://www.catalogueoflife.org/data/taxon/3M7ZD> <http://www.w3.org/2000/01/rdf-schema#label> "Holcus lanatus" .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6087372> .
+<http://ecoinformatics.org/oboe/data/59431472> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+_:oboe-core_MeasuredValue1_7177575ab52680f3b082634dbeb8d2896016e7e1_N226 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.7" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+_:oboe-core_MeasuredValue1_7177575ab52680f3b082634dbeb8d2896016e7e1_N226 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/59431472> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_7177575ab52680f3b082634dbeb8d2896016e7e1_N226 .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/6087372> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/59431472> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/59431472> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+
+<http://www.catalogueoflife.org/data/taxon/N82B> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/760> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+_:oboe-core_MeasuredValue1_5e7a69718de60bf913496ca62b4dc9b84a12a49e_N258 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/63331583> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://ecoinformatics.org/oboe/data/63331583> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+_:oboe-core_MeasuredValue1_5e7a69718de60bf913496ca62b4dc9b84a12a49e_N258 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.28" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://www.catalogueoflife.org/data/taxon/N82B> <http://www.w3.org/2000/01/rdf-schema#label> "Brassica napus" .
+<http://ecoinformatics.org/oboe/data/63331583> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_5e7a69718de60bf913496ca62b4dc9b84a12a49e_N258 .
+<http://ecoinformatics.org/oboe/data/6429026> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/N82B> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/63331583> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/760> <http://www.w3.org/2000/01/rdf-schema#label> "Vegetation states from intensively monitored crop sites in western Germany" .
+<http://ecoinformatics.org/oboe/data/6429026> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/6429026> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/63331583> .
+<http://ecoinformatics.org/oboe/data/760> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6429026> .
+
+_:oboe-core_MeasuredValue1_52cfbd22927d39f477a87c348f40916562ead091_N290 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/2950445> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/97H4> .
+_:oboe-core_MeasuredValue1_52cfbd22927d39f477a87c348f40916562ead091_N290 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.17" .
+<http://www.catalogueoflife.org/data/taxon/97H4> <http://www.w3.org/2000/01/rdf-schema#label> "Achillea millefolium" .
+<http://ecoinformatics.org/oboe/data/428> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/2950445> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/2950445> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/27079591> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://ecoinformatics.org/oboe/data/27079591> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/2950445> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/27079591> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/2000/01/rdf-schema#label> "Trait and biomass data 2014 and 2015 of the BE_LOW project" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/27079591> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://www.catalogueoflife.org/data/taxon/97H4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/27079591> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_52cfbd22927d39f477a87c348f40916562ead091_N290 .
+
+<http://ecoinformatics.org/oboe/data/27082114> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/2950515> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/27082114> .
+<http://ecoinformatics.org/oboe/data/2950515> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/97H4> .
+<http://ecoinformatics.org/oboe/data/27082114> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://ecoinformatics.org/oboe/data/428> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/2950515> .
+<http://www.catalogueoflife.org/data/taxon/97H4> <http://www.w3.org/2000/01/rdf-schema#label> "Achillea millefolium" .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+_:oboe-core_MeasuredValue1_c0dd337029fc8526690bf90070fd2143cc0553e5_N322 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/27082114> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_c0dd337029fc8526690bf90070fd2143cc0553e5_N322 .
+<http://ecoinformatics.org/oboe/data/2950515> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/2000/01/rdf-schema#label> "Trait and biomass data 2014 and 2015 of the BE_LOW project" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://www.catalogueoflife.org/data/taxon/97H4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/27082114> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+_:oboe-core_MeasuredValue1_c0dd337029fc8526690bf90070fd2143cc0553e5_N322 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.13" .
+
+<http://ecoinformatics.org/oboe/data/59522462> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/59522462> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://www.catalogueoflife.org/data/taxon/4RHKY> <http://www.w3.org/2000/01/rdf-schema#label> "Ranunculus repens" .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6092702> .
+<http://ecoinformatics.org/oboe/data/6092702> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59522462> .
+<http://www.catalogueoflife.org/data/taxon/4RHKY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+_:oboe-core_MeasuredValue1_8b49d70e9c2aadf371f8e2de967420455151329d_N354 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://ecoinformatics.org/oboe/data/6092702> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/4RHKY> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+_:oboe-core_MeasuredValue1_8b49d70e9c2aadf371f8e2de967420455151329d_N354 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.05" .
+<http://ecoinformatics.org/oboe/data/59522462> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_8b49d70e9c2aadf371f8e2de967420455151329d_N354 .
+<http://ecoinformatics.org/oboe/data/59522462> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/6092702> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+
+<http://www.catalogueoflife.org/data/taxon/723WW> <http://www.w3.org/2000/01/rdf-schema#label> "Leucanthemum vulgare" .
+<http://ecoinformatics.org/oboe/data/6091729> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/723WW> .
+<http://ecoinformatics.org/oboe/data/6091729> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/59507053> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/59507053> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_8b49d70e9c2aadf371f8e2de967420455151329d_N386 .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6091729> .
+_:oboe-core_MeasuredValue1_8b49d70e9c2aadf371f8e2de967420455151329d_N386 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.05" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/59507053> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+_:oboe-core_MeasuredValue1_8b49d70e9c2aadf371f8e2de967420455151329d_N386 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/6091729> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59507053> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://www.catalogueoflife.org/data/taxon/723WW> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/59507053> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+
+<http://ecoinformatics.org/oboe/data/27064979> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://ecoinformatics.org/oboe/data/428> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/2950046> .
+<http://ecoinformatics.org/oboe/data/27064979> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://www.catalogueoflife.org/data/taxon/97H4> <http://www.w3.org/2000/01/rdf-schema#label> "Achillea millefolium" .
+<http://ecoinformatics.org/oboe/data/2950046> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/2950046> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/97H4> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/27064979> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/2000/01/rdf-schema#label> "Trait and biomass data 2014 and 2015 of the BE_LOW project" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+_:oboe-core_MeasuredValue1_c86ddd3bd04b7afc9d1bb5fa3f48e111ce515493_N418 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.06" .
+<http://ecoinformatics.org/oboe/data/27064979> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_c86ddd3bd04b7afc9d1bb5fa3f48e111ce515493_N418 .
+<http://www.catalogueoflife.org/data/taxon/97H4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+_:oboe-core_MeasuredValue1_c86ddd3bd04b7afc9d1bb5fa3f48e111ce515493_N418 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/2950046> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/27064979> .
+
+_:oboe-core_MeasuredValue1_1cb99c1ef12d28e324ee0e8942dd0771aa202db8_N450 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+_:oboe-core_MeasuredValue1_1cb99c1ef12d28e324ee0e8942dd0771aa202db8_N450 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.38" .
+<http://www.catalogueoflife.org/data/taxon/723WW> <http://www.w3.org/2000/01/rdf-schema#label> "Leucanthemum vulgare" .
+<http://ecoinformatics.org/oboe/data/6091719> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59506888> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/59506888> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_1cb99c1ef12d28e324ee0e8942dd0771aa202db8_N450 .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6091719> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/6091719> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/723WW> .
+<http://ecoinformatics.org/oboe/data/6091719> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/59506888> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/59506888> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://www.catalogueoflife.org/data/taxon/723WW> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/59506888> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+
+_:oboe-core_MeasuredValue1_1bafb92c498ace442d4fc27126eadc1a32bf6a2a_N482 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.3044895105" .
+<http://ecoinformatics.org/oboe/data/526> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/6007753> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/58375768> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/6007753> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/8W5WT> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/526> <http://www.w3.org/2000/01/rdf-schema#label> "KIT herbaceous functional gradient (weekly measurements)" .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/526> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6007753> .
+<http://ecoinformatics.org/oboe/data/58375768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://www.catalogueoflife.org/data/taxon/8W5WT> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/58375768> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/58375768> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_1bafb92c498ace442d4fc27126eadc1a32bf6a2a_N482 .
+_:oboe-core_MeasuredValue1_1bafb92c498ace442d4fc27126eadc1a32bf6a2a_N482 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/6007753> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/58375768> .
+<http://www.catalogueoflife.org/data/taxon/8W5WT> <http://www.w3.org/2000/01/rdf-schema#label> "Alopecurus geniculatus" .
+
+<http://ecoinformatics.org/oboe/data/59477711> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://ecoinformatics.org/oboe/data/59477711> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_5b08b72ad1fe7c69fbbfe26417351f4e7c11717c_N514 .
+<http://www.catalogueoflife.org/data/taxon/5BCMF> <http://www.w3.org/2000/01/rdf-schema#label> "Vicia cracca" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/59477711> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/6089933> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59477711> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://ecoinformatics.org/oboe/data/6089933> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+_:oboe-core_MeasuredValue1_5b08b72ad1fe7c69fbbfe26417351f4e7c11717c_N514 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.12" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/59477711> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/6089933> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/5BCMF> .
+<http://www.catalogueoflife.org/data/taxon/5BCMF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+_:oboe-core_MeasuredValue1_5b08b72ad1fe7c69fbbfe26417351f4e7c11717c_N514 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6089933> .
+
+_:oboe-core_MeasuredValue1_bc0d5950400d4df7183f1f23d44ed27def3095df_N546 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/59420200> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/59420200> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+_:oboe-core_MeasuredValue1_bc0d5950400d4df7183f1f23d44ed27def3095df_N546 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.48" .
+<http://ecoinformatics.org/oboe/data/6086704> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/ND35> .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6086704> .
+<http://ecoinformatics.org/oboe/data/6086704> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59420200> .
+<http://ecoinformatics.org/oboe/data/59420200> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_bc0d5950400d4df7183f1f23d44ed27def3095df_N546 .
+<http://www.catalogueoflife.org/data/taxon/ND35> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/59420200> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/6086704> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://www.catalogueoflife.org/data/taxon/ND35> <http://www.w3.org/2000/01/rdf-schema#label> "Bromus hordeaceus" .
+
+<http://www.catalogueoflife.org/data/taxon/6857G> <http://www.w3.org/2000/01/rdf-schema#label> "Arrhenatherum elatius" .
+<http://ecoinformatics.org/oboe/data/27113203> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://www.catalogueoflife.org/data/taxon/6857G> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/27113203> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_3e1a5ce7e5c728534cd51c93da51aee64f5b4450_N578 .
+<http://ecoinformatics.org/oboe/data/2951659> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/27113203> .
+<http://ecoinformatics.org/oboe/data/428> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/2951659> .
+<http://ecoinformatics.org/oboe/data/2951659> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/2951659> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/6857G> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/27113203> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+_:oboe-core_MeasuredValue1_3e1a5ce7e5c728534cd51c93da51aee64f5b4450_N578 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/428> <http://www.w3.org/2000/01/rdf-schema#label> "Trait and biomass data 2014 and 2015 of the BE_LOW project" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+_:oboe-core_MeasuredValue1_3e1a5ce7e5c728534cd51c93da51aee64f5b4450_N578 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.106" .
+<http://ecoinformatics.org/oboe/data/27113203> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+
+<http://ecoinformatics.org/oboe/data/59448907> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://www.catalogueoflife.org/data/taxon/3W7ZK> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/59448907> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/6088380> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59448907> .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6088380> .
+<http://ecoinformatics.org/oboe/data/6088380> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+_:oboe-core_MeasuredValue1_c50a392c4ba467984e9c397de2a9789bed127b45_N610 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.23" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/59448907> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://www.catalogueoflife.org/data/taxon/3W7ZK> <http://www.w3.org/2000/01/rdf-schema#label> "Lotus corniculatus" .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+<http://ecoinformatics.org/oboe/data/59448907> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_c50a392c4ba467984e9c397de2a9789bed127b45_N610 .
+<http://ecoinformatics.org/oboe/data/6088380> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/3W7ZK> .
+_:oboe-core_MeasuredValue1_c50a392c4ba467984e9c397de2a9789bed127b45_N610 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+
+<http://ecoinformatics.org/oboe/data/59522662> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/6092715> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/4RHKY> .
+<http://www.catalogueoflife.org/data/taxon/4RHKY> <http://www.w3.org/2000/01/rdf-schema#label> "Ranunculus repens" .
+<http://www.catalogueoflife.org/data/taxon/4RHKY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://ecoinformatics.org/oboe/data/59522662> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/6092715> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59522662> .
+<http://ecoinformatics.org/oboe/data/59522662> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://ecoinformatics.org/oboe/data/6092715> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6092715> .
+<http://ecoinformatics.org/oboe/data/59522662> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_9ba26e2adc0afa273575707cb431da2c4c0f71ec_N642 .
+_:oboe-core_MeasuredValue1_9ba26e2adc0afa273575707cb431da2c4c0f71ec_N642 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.03" .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+_:oboe-core_MeasuredValue1_9ba26e2adc0afa273575707cb431da2c4c0f71ec_N642 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+
+_:oboe-core_MeasuredValue1_4fda93c5ec51843680c0378415d4b5ed591ddd60_N674 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> .
+<http://ecoinformatics.org/oboe/data/6089614> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity> <http://www.catalogueoflife.org/data/taxon/58Q42> .
+<http://www.catalogueoflife.org/data/taxon/58Q42> <http://www.w3.org/2000/01/rdf-schema#label> "Trifolium pratense" .
+<http://ecoinformatics.org/oboe/data/6089614> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> .
+_:oboe-core_MeasuredValue1_4fda93c5ec51843680c0378415d4b5ed591ddd60_N674 <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasCode> "0.18" .
+<http://ecoinformatics.org/oboe/data/59471898> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofCharacteristic> <http://top-thesaurus.org/trait#TOP69> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Characteristic> .
+<http://ecoinformatics.org/oboe/data/59471898> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/2000/01/rdf-schema#label> "Jena Experiment Traits" .
+<http://www.catalogueoflife.org/data/taxon/58Q42> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> .
+<http://qudt.org/vocab/unit/M> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Unit> .
+<http://ecoinformatics.org/oboe/data/6089614> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement> <http://ecoinformatics.org/oboe/data/59471898> .
+<http://ecoinformatics.org/oboe/data/59471898> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#usesStandard> <http://qudt.org/vocab/unit/M> .
+<http://ecoinformatics.org/oboe/data/589> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMember> <http://ecoinformatics.org/oboe/data/6089614> .
+<http://top-thesaurus.org/trait#TOP69> <http://www.w3.org/2000/01/rdf-schema#label> "Plant height vegetative" .
+<http://ecoinformatics.org/oboe/data/59471898> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue> _:oboe-core_MeasuredValue1_4fda93c5ec51843680c0378415d4b5ed591ddd60_N674 .
+<http://ecoinformatics.org/oboe/data/589> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ObservationCollection> .
+
