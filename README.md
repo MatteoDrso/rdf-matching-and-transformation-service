@@ -35,9 +35,9 @@ Build a production-grade, independently deployable microservice that:
 
 ```
 Input Data ──► WP1 nf-core pipeline ──────────────────────────────────► Output Data (RDF)
-                  ▲   ▲   ▲   ▲   ▲   ▲   ▲   ▲
-                  │   │   │   │   │   │   │   │
-                 WP2 WP3 WP4 WP5 WP6 WP7 WP8 (this repo)
+                                        ▲   ▲   ▲   ▲   ▲   ▲   ▲  
+                                        │   │   │   │   │   │   │   
+                                       WP2 WP3 WP4 WP5 WP6 WP7 WP8 (this repo)
 ```
 
 The service consumes:
