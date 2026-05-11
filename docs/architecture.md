@@ -39,6 +39,27 @@ Darwin Core RDF, ABCD and BiodivOntology remain on the reference list from
 the Lastenheft and act as **secondary alignment targets**: cross-walks are
 modelled in WP7 and validated by `/validate` in WP8.
 
+## Build Notes — Karma JAR
+
+The detailed, validated build recipe lives in [`lib/README.md`](../lib/README.md).
+Three things bite every fresh developer:
+
+1. **JDK 11 only.** Newer JDKs (17+) fail at compile time on parts of the
+   Karma reactor. Maven also picks up the newest JDK on PATH unless
+   `JAVA_HOME` is set explicitly.
+2. **Two POM edits** in the upstream Web-Karma repo are required: enable the
+   `karma-spark` module in the parent `pom.xml`, and remove the dead
+   `karma-mr` dependency from `karma-spark/pom.xml`. The dependency is
+   declared but never referenced in code, and it pulls old Cloudera /
+   Pentaho artefacts from HTTP-only repositories that Maven 3.8+ blocks.
+3. **Use the `shaded` profile with `-Denv=shaded`.** Plain `mvn package`
+   produces only the thin 42 kB JAR; we need the fat ~252 MB
+   `karma-spark-0.0.1-SNAPSHOT-shaded.jar`.
+
+The local build is validated isomorphic (via `rdflib.compare`) to the
+InfAI-provided ground-truth RDF for the sample dataset, so we have a
+reproducible reference rather than depending on InfAI to ship binaries.
+
 ## Open Questions
 
 - Should `/validate` load OBOE + DwC + ABCD + BiodivOntology into a single
