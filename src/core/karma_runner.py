@@ -47,18 +47,43 @@ def _resolve_jar() -> Path:
     return Path(candidates[-1])
 
 
+_HOMEBREW_JAVA_HINTS = (
+    "/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/bin/java",
+    "/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home/bin/java",
+    "/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home/bin/java",
+)
+
+
+def _java_works(candidate: str) -> bool:
+    try:
+        result = subprocess.run(
+            [candidate, "-version"], capture_output=True, timeout=10
+        )
+        return result.returncode == 0
+    except (OSError, subprocess.TimeoutExpired):
+        return False
+
+
 def _resolve_java() -> str:
+    # On macOS, /usr/bin/java is a non-functional shim if no JDK is installed;
+    # `shutil.which` returns it anyway. Verify each candidate actually runs.
+    candidates: list[str] = []
     java_home = os.environ.get("JAVA_HOME")
     if java_home:
-        candidate = Path(java_home) / "bin" / "java"
-        if candidate.is_file():
-            return str(candidate)
+        candidates.append(str(Path(java_home) / "bin" / "java"))
     found = shutil.which("java")
-    if not found:
-        raise FileNotFoundError(
-            "No Java runtime found on PATH and JAVA_HOME is unset."
-        )
-    return found
+    if found:
+        candidates.append(found)
+    candidates.extend(_HOMEBREW_JAVA_HINTS)
+
+    for candidate in candidates:
+        if _java_works(candidate):
+            return candidate
+
+    raise FileNotFoundError(
+        "No working Java runtime found. Set JAVA_HOME or install a JDK "
+        "(macOS: `brew install openjdk@11`)."
+    )
 
 
 def run_karma(
