@@ -1,52 +1,44 @@
-# Running Tests and the Service Locally
+# Running the Service
 
-Quick reference for running WP8 locally. Assumes the Karma JAR is built and
-placed under `lib/` (see [`lib/README.md`](../lib/README.md)) and the
-project's `venv` is set up.
+How to run WP8 locally. **Docker is the default path** — no Java, no Maven,
+no Python venv needed. The native setup at the bottom is only for
+contributors who change Python code and want fast iteration.
 
-## One-time setup
+---
 
-```bash
-cd ~/Projects/SP_WP8_SS26
-source venv/bin/activate
-pip install -r requirements.txt
-```
+## 1. Docker (recommended)
 
-Keep the terminal tab open — re-activating the venv only matters in new
-tabs.
-
-## Tests
+Prerequisites: Docker Desktop installed and running.
 
 ```bash
-pytest                                # all tests (~1 s)
-pytest -v                             # verbose, shows test names
-pytest tests/test_transformation.py   # just the integration test
+git clone https://github.com/MatteoDrso/rdf-matching-and-transformation-service.git
+cd rdf-matching-and-transformation-service
+
+docker build -t sp-wp8 .                                      # 10–15 min, one-time
+docker run --rm -p 8000:8000 --name rdf-transform sp-wp8      # foreground
 ```
 
-Expected: **4 passed**. The Karma integration test self-skips if the JAR
-or a working Java is missing, so CI without those stays green.
+That's the whole setup. Service runs on http://127.0.0.1:8000. Stop with
+**Ctrl+C** — `--rm` cleans up the container automatically.
 
-## Start the service
+Optional: pin Karma to a specific commit at build time.
 
 ```bash
-uvicorn main:app --reload
+docker build --build-arg KARMA_REF=<sha-or-branch> -t sp-wp8 .
 ```
 
-- Runs on http://127.0.0.1:8000
-- `--reload` auto-restarts on code changes
-- Stop with **Ctrl+C**
+---
 
-Different port: `uvicorn main:app --reload --port 8765`.
+## 2. Use the service
 
-## Use the service
+The same three options work regardless of how the service was started.
 
 ### Browser — Swagger UI
 
 http://127.0.0.1:8000/docs
 
-Click `POST /transform` → *Try it out* → pick the two files from
-`examples/` → set `delimiter=TAB` → Execute. Response body is the
-generated RDF.
+`POST /transform` → *Try it out* → upload the two files from `examples/` →
+`delimiter=TAB` → Execute. Response is the generated RDF, downloadable.
 
 ### Terminal — curl
 
@@ -54,10 +46,7 @@ generated RDF.
 # Healthcheck
 curl http://127.0.0.1:8000/
 
-# Supported mapping schema formats
-curl http://127.0.0.1:8000/schemas
-
-# Real transformation with the InfAI sample
+# Real transformation with the InfAI sample (run from repo root)
 curl -X POST http://127.0.0.1:8000/transform \
   -F "dataset=@examples/plant_height_vegetative_raw_germany_20.csv" \
   -F "mapping_schema=@examples/plant_height_vegetative_raw-model_oboe.ttl" \
@@ -68,51 +57,95 @@ curl -X POST http://127.0.0.1:8000/transform \
 head -20 out.ttl
 ```
 
+### Python — notebooks / scripts
+
+```python
+import requests
+
+with open("examples/plant_height_vegetative_raw_germany_20.csv", "rb") as ds, \
+     open("examples/plant_height_vegetative_raw-model_oboe.ttl", "rb") as mdl:
+    r = requests.post(
+        "http://127.0.0.1:8000/transform",
+        files={"dataset": ds, "mapping_schema": mdl},
+        data={"delimiter": "TAB", "output_format": "turtle"},
+    )
+print(r.status_code, r.text[:500])
+```
+
 ### Output formats
 
-| `output_format` | Content-Type           | How it's produced              |
-| --------------- | ---------------------- | ------------------------------ |
-| `turtle`, `ttl` | `text/turtle`          | rdflib reformats Karma's NT    |
-| `nt`, `ntriples`| `application/n-triples`| pass-through (Karma's native)  |
-| `jsonld`        | `application/ld+json`  | rdflib reformats Karma's NT    |
+| `output_format` | Content-Type            | How it's produced            |
+| --------------- | ----------------------- | ---------------------------- |
+| `turtle`, `ttl` | `text/turtle`           | rdflib reformats Karma's NT  |
+| `nt`, `ntriples`| `application/n-triples` | pass-through (Karma's native)|
+| `jsonld`        | `application/ld+json`   | rdflib reformats Karma's NT  |
 
-## Troubleshooting
+---
+
+## 3. Troubleshooting
 
 | Symptom                                     | Likely cause                       | Fix                                              |
 | ------------------------------------------- | ---------------------------------- | ------------------------------------------------ |
-| `503` with *"No Karma JAR found"*           | `lib/karma-spark-*-shaded.jar` missing | Build the JAR — see [`lib/README.md`](../lib/README.md) |
-| `503` with *"No working Java runtime"*      | No usable JDK on the machine       | `brew install openjdk@11`                        |
-| `400` with *"Karma transformation failed"*  | Mapping model and CSV don't match  | Inspect `detail.stderr` in the response          |
+| `Cannot connect to Docker daemon`           | Docker Desktop not running         | Open Docker Desktop                              |
+| `Address already in use`                    | Another process holds port 8000    | `-p 8001:8000` or stop the other process         |
+| `400` with *"Karma transformation failed"*  | Mapping model and CSV mismatch     | Inspect `detail.stderr` in the response          |
 | `400` with *"Unsupported output_format"*    | Typo in `output_format`            | Use one from the table above                     |
-| `Address already in use`                    | Another process holds port 8000    | `--port 8765` or `lsof -i :8000` → `kill <pid>`  |
+| Build fails downloading Maven deps          | Bad/blocked internet               | Retry; cached layers will skip what succeeded    |
 
-## Docker
-
-The whole stack (Karma JAR + service) lives in a single image. No local
-Java / Maven needed.
+Container introspection:
 
 ```bash
-# Build (one-time, ~10-15 min the first time — pulls Karma deps from Maven)
-docker build -t sp-wp8 .
-
-# Run
-docker run --rm -p 8000:8000 --name rdf-transform sp-wp8
-
-# Same curl as above against http://127.0.0.1:8000
+docker ps                              # is it running?
+docker logs rdf-transform              # what is it saying?
+docker exec -it rdf-transform sh       # shell inside the container
 ```
 
-Pin Karma to a specific commit by overriding the build arg:
-`docker build --build-arg KARMA_REF=<sha-or-branch> -t sp-wp8 .`.
+---
 
-## TL;DR
+## 4. Native setup (contributors only)
+
+Use this if you change Python code and want a sub-second iteration loop.
+The Docker image rebuild is too slow for that.
+
+### Prerequisites
+
+- Python 3.11
+- JDK 11 (`brew install openjdk@11` on macOS)
+- The Karma JAR under `lib/karma-spark-*-shaded.jar` — see
+  [`lib/README.md`](../lib/README.md) for how to build it once
+
+### Setup
 
 ```bash
+python -m venv venv
 source venv/bin/activate
-pytest                          # run tests
-uvicorn main:app --reload       # run service
-# new tab:
-curl -X POST http://127.0.0.1:8000/transform \
-  -F "dataset=@examples/plant_height_vegetative_raw_germany_20.csv" \
-  -F "mapping_schema=@examples/plant_height_vegetative_raw-model_oboe.ttl" \
-  -F "delimiter=TAB" -o out.ttl
+pip install -r requirements.txt
 ```
+
+Activate the venv in every new terminal tab (`source venv/bin/activate`).
+
+### Tests
+
+```bash
+pytest                                # all tests (~1 s)
+pytest -v                             # verbose
+pytest tests/test_transformation.py   # only the integration test
+```
+
+Expected: **4 passed**. The Karma integration test self-skips if the JAR
+or a working Java runtime is missing.
+
+### Run the service
+
+```bash
+uvicorn main:app --reload             # auto-reloads on code changes
+```
+
+Different port: `uvicorn main:app --reload --port 8001`.
+
+### Native-only error cases
+
+| Symptom                                     | Fix                                              |
+| ------------------------------------------- | ------------------------------------------------ |
+| `503` *"No Karma JAR found"*                | Build the JAR — see [`lib/README.md`](../lib/README.md) |
+| `503` *"No working Java runtime"*           | `brew install openjdk@11`                        |

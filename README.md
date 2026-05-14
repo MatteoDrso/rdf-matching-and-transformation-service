@@ -19,6 +19,27 @@ Botanisches Museum Berlin (BGBM).
 
 ---
 
+## Quick Start
+
+The whole stack ships in one Docker image — no local Java, Maven, or Python
+needed.
+
+```bash
+git clone https://github.com/MatteoDrso/rdf-matching-and-transformation-service.git
+cd rdf-matching-and-transformation-service
+
+docker build -t sp-wp8 .                                   # 10–15 min, one-time
+docker run --rm -p 8000:8000 --name rdf-transform sp-wp8   # foreground
+```
+
+Service on http://127.0.0.1:8000 — Swagger UI at
+[`/docs`](http://127.0.0.1:8000/docs).
+
+Full setup, test, curl, Python and contributor-mode instructions live in
+**[`docs/running.md`](docs/running.md)**.
+
+---
+
 ## Goal
 
 Build a production-grade, independently deployable microservice that:
@@ -130,18 +151,16 @@ SP_WP8_SS26/
 ├── .gitignore                      # ignores .DS_Store, ~$*, lib/*.jar
 ├── .env.example                    # OPENAI_API_KEY (optional), KARMA_JAR_PATH, JAVA_HOME, …
 ├── requirements.txt                # fastapi, uvicorn, pydantic, rdflib, …
-├── Dockerfile                      # Python + JRE + Karma JAR
-├── docker-compose.yml              # local dev: service (+ optional triplestore)
+├── Dockerfile                      # multi-stage: Maven JAR build + Python + JRE
+├── .dockerignore
 ├── main.py                         # FastAPI entrypoint (uvicorn target)
 │
 ├── src/
 │   ├── api/
 │   │   ├── routes.py               # endpoint handlers
 │   │   └── models.py               # pydantic request/response schemas
-│   ├── core/
-│   │   ├── karma_runner.py         # subprocess wrapper around the Karma JAR (planned)
-│   │   └── serializer.py           # rdflib-based reformatting (TTL → JSON-LD, etc.)
-│   └── ontologies/                 # cached reference ontologies (OBOE, DwC, ABCD, BiodivOntology)
+│   └── core/
+│       └── karma_runner.py         # subprocess wrapper around the Karma JAR
 │
 ├── lib/                            # Karma JAR placement (git-ignored)
 │   └── README.md
@@ -163,6 +182,7 @@ SP_WP8_SS26/
 │   └── meta.yml                    # nf-core module metadata
 │
 └── docs/
+    ├── running.md                  # local run / test quick reference (Docker-first)
     ├── api.md                      # extended API reference + sample walkthrough
     └── architecture.md             # design decisions, ontology alignment notes
 ```
@@ -248,25 +268,15 @@ Open dependencies / clarifications:
 
 ---
 
-## Setup (planned)
+## Running It
 
-```bash
-python -m venv venv
-source venv/bin/activate        # macOS / Linux
-pip install -r requirements.txt
+→ See [`docs/running.md`](docs/running.md). Covers:
 
-cp .env.example .env            # configure JAR path, optional endpoints
-uvicorn main:app --reload
-```
-
-Service available at `http://127.0.0.1:8000`; interactive Swagger UI at `/docs`.
-
-### Docker
-
-```bash
-docker build -t sp-wp8-rdf-transform .
-docker run --rm -p 8000:8000 --env-file .env sp-wp8-rdf-transform
-```
+- **Docker** (recommended) — clone, build, run, done.
+- **Use the service** — Swagger UI, `curl`, Python — same for both paths.
+- **Native setup** (contributors only) — `venv` + `pytest` + `uvicorn --reload`
+  for fast Python iteration.
+- **Troubleshooting**.
 
 ---
 
