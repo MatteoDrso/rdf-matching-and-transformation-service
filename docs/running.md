@@ -86,6 +86,24 @@ head -20 out.ttl
 | `400` with *"Unsupported output_format"*    | Typo in `output_format`            | Use one from the table above                     |
 | `Address already in use`                    | Another process holds port 8000    | `--port 8765` or `lsof -i :8000` → `kill <pid>`  |
 
+## Docker
+
+The whole stack (Karma JAR + service) lives in a single image. No local
+Java / Maven needed.
+
+```bash
+# Build (one-time, ~10-15 min the first time — pulls Karma deps from Maven)
+docker build -t sp-wp8 .
+
+# Run
+docker run --rm -p 8000:8000 --name rdf-transform sp-wp8
+
+# Same curl as above against http://127.0.0.1:8000
+```
+
+Pin Karma to a specific commit by overriding the build arg:
+`docker build --build-arg KARMA_REF=<sha-or-branch> -t sp-wp8 .`.
+
 ## TL;DR
 
 ```bash
