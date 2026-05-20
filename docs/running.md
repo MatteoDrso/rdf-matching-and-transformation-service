@@ -111,7 +111,7 @@ The Docker image rebuild is too slow for that.
 
 - Python 3.11
 - JDK 11 (`brew install openjdk@11` on macOS)
-- The Karma JAR under `lib/karma-spark-*-shaded.jar` — see
+- The Karma JAR under `lib/karma-offline-*-shaded.jar` — see
   [`lib/README.md`](../lib/README.md) for how to build it once
 
 ### Setup

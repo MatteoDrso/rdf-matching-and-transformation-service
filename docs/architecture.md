@@ -12,7 +12,7 @@ it gives us reproducibility against InfAI's pipeline for free and avoids
 reimplementing R2RML semantics in Python.
 
 *Cost:* the runtime image must ship a JRE plus the shaded JAR
-(`karma-spark-*-shaded.jar`). Web-Karma was archived on 16 April 2025; we
+(`karma-offline-*-shaded.jar`). Web-Karma was archived on 16 April 2025; we
 build the JAR from source once and vendor it under `lib/`.
 
 ### D2 — Mapping format: Karma R2RML model (`*-model.ttl`)
@@ -39,22 +39,34 @@ Darwin Core RDF, ABCD and BiodivOntology remain on the reference list from
 the Lastenheft and act as **secondary alignment targets**: cross-walks are
 modelled in WP7 and validated by `/validate` in WP8.
 
+### D4 — Build `karma-offline`, not `karma-spark`
+
+`OfflineRdfGenerator` lives in the `karma-offline` module. The InfAI
+reference command names `karma-spark-*-shaded.jar`, but that is just the
+same class re-bundled inside `karma-spark`'s fat-JAR along with Spark,
+Hadoop and Scala — none of which we use, since we invoke the class
+directly via `java -cp` rather than driving it from a Spark cluster.
+
+*Why:* building `karma-offline` instead drops Spark + Hadoop + Scala from
+the artefact (~252 MB → ~40–80 MB), removes both upstream-POM patches
+(no `karma-mr`, no parent-POM module toggle), and cuts the Maven build
+from ~10–15 min to ~2–4 min. The JAR is byte-incompatible with the InfAI
+filename but produces identical RDF — verified by isomorphism against the
+ground-truth `examples/*_oboe.ttl`.
+
 ## Build Notes — Karma JAR
 
 The detailed, validated build recipe lives in [`lib/README.md`](../lib/README.md).
-Three things bite every fresh developer:
+Two things still bite every fresh developer:
 
 1. **JDK 11 only.** Newer JDKs (17+) fail at compile time on parts of the
    Karma reactor. Maven also picks up the newest JDK on PATH unless
    `JAVA_HOME` is set explicitly.
-2. **Two POM edits** in the upstream Web-Karma repo are required: enable the
-   `karma-spark` module in the parent `pom.xml`, and remove the dead
-   `karma-mr` dependency from `karma-spark/pom.xml`. The dependency is
-   declared but never referenced in code, and it pulls old Cloudera /
-   Pentaho artefacts from HTTP-only repositories that Maven 3.8+ blocks.
-3. **Use the `shaded` profile with `-Denv=shaded`.** Plain `mvn package`
-   produces only the thin 42 kB JAR; we need the fat ~252 MB
-   `karma-spark-0.0.1-SNAPSHOT-shaded.jar`.
+2. **Use the `shaded` profile.** Plain `mvn package` produces only the
+   thin 42 kB JAR; we need the fat
+   `karma-offline-0.0.1-SNAPSHOT-shaded.jar` (the `shaded` classifier is
+   configured inside `karma-offline/pom.xml`, so `-P shaded` alone is
+   sufficient — no `-Denv=shaded` hack needed).
 
 The local build is validated isomorphic (via `rdflib.compare`) to the
 InfAI-provided ground-truth RDF for the sample dataset, so we have a

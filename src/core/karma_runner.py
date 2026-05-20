@@ -37,12 +37,15 @@ def _resolve_jar() -> Path:
             raise FileNotFoundError(f"KARMA_JAR points to a missing file: {path}")
         return path
 
-    pattern = str(_REPO_ROOT / "lib" / "karma-spark-*-shaded.jar")
+    # karma-offline is the lean module that actually contains OfflineRdfGenerator;
+    # karma-spark is the legacy Spark-bundled variant we no longer build but may
+    # still be present from older local checkouts, so accept either.
+    pattern = str(_REPO_ROOT / "lib" / "karma-*-shaded.jar")
     candidates = sorted(glob.glob(pattern))
     if not candidates:
         raise FileNotFoundError(
             "No Karma JAR found. Set KARMA_JAR or place "
-            "karma-spark-*-shaded.jar under lib/."
+            "karma-offline-*-shaded.jar under lib/."
         )
     return Path(candidates[-1])
 

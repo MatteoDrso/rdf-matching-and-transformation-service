@@ -25,5 +25,5 @@ def _karma_available() -> bool:
 
 requires_karma = pytest.mark.skipif(
     not _karma_available(),
-    reason="Requires Karma JAR (lib/karma-spark-*-shaded.jar) and a working Java runtime",
+    reason="Requires Karma JAR (lib/karma-offline-*-shaded.jar) and a working Java runtime",
 )

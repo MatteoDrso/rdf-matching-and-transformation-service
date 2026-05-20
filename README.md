@@ -78,7 +78,7 @@ with [Web-Karma](https://github.com/usc-isi-i2/Web-Karma). The reference
 command from InfAI is:
 
 ```bash
-java -cp karma-spark-0.0.1-SNAPSHOT-shaded.jar \
+java -cp karma-offline-0.0.1-SNAPSHOT-shaded.jar \
   edu.isi.karma.rdf.OfflineRdfGenerator \
   --sourcetype CSV \
   --filepath "plant_height_vegetative_raw_germany_20.csv" \
@@ -99,15 +99,15 @@ java -cp karma-spark-0.0.1-SNAPSHOT-shaded.jar \
 
 ### Obtaining the JAR
 
-The `karma-spark-*-shaded.jar` is **not** distributed via GitHub releases —
+The `karma-offline-*-shaded.jar` is **not** distributed via GitHub releases —
 the upstream `usc-isi-i2/Web-Karma` repository was archived on 16 April 2025.
 Build it from source once and place it under `lib/` locally:
 
 ```bash
 git clone https://github.com/usc-isi-i2/Web-Karma.git
 cd Web-Karma
-mvn -DskipTests package
-cp karma-spark/target/karma-spark-*-shaded.jar /path/to/SP_WP8_SS26/lib/
+mvn -DskipTests -P shaded -pl karma-offline -am package
+cp karma-offline/target/karma-offline-*-shaded.jar /path/to/SP_WP8_SS26/lib/
 ```
 
 `lib/*.jar` is git-ignored. See [lib/README.md](lib/README.md).
@@ -230,7 +230,7 @@ End-to-end reproduction with the JAR in `lib/`:
 
 ```bash
 cd examples
-java -cp ../lib/karma-spark-*-shaded.jar \
+java -cp ../lib/karma-offline-*-shaded.jar \
   edu.isi.karma.rdf.OfflineRdfGenerator \
   --sourcetype CSV \
   --filepath plant_height_vegetative_raw_germany_20.csv \
@@ -250,7 +250,7 @@ diff <(sort out.ttl) <(sort plant_height_vegetative_raw_germany_20_oboe.ttl)
 | - | --------------------------------- | ----------------------------------------------------------------------- |
 | 1 | Repo scaffolding                  | This README, `.gitignore`, `requirements.txt`, `main.py` stub           |
 | 2 | InfAI reference imported          | Example CSV / model / expected output in `examples/`                    |
-| 3 | Build & vendor Karma JAR          | `lib/karma-spark-*-shaded.jar`                                          |
+| 3 | Build & vendor Karma JAR          | `lib/karma-offline-*-shaded.jar`                                        |
 | 4 | Local reproduction of the InfAI command | Verified diff against expected output                             |
 | 5 | Karma subprocess wrapper          | `src/core/karma_runner.py`                                              |
 | 6 | REST API wired up                 | `/transform`, `/validate` no longer 501                                 |
