@@ -14,18 +14,52 @@ Prerequisites: Docker Desktop installed and running.
 git clone https://github.com/MatteoDrso/rdf-matching-and-transformation-service.git
 cd rdf-matching-and-transformation-service
 
-docker build -t sp-wp8 .                                      # 10–15 min, one-time
+docker build -t sp-wp8 .                                      # ~30 s
 docker run --rm -p 8000:8000 --name rdf-transform sp-wp8      # foreground
 ```
 
 That's the whole setup. Service runs on http://127.0.0.1:8000. Stop with
 **Ctrl+C** — `--rm` cleans up the container automatically.
 
-Optional: pin Karma to a specific commit at build time.
+### Docker build modes
+
+The Dockerfile supports two ways to acquire the Karma JAR. They produce
+the same runtime image; pick whichever fits your environment.
+
+| Mode | Trigger | Build time | What it does |
+| --- | --- | --- | --- |
+| **Source** (default) | `docker build .` | ~30 s | Clones Web-Karma, runs Maven for `karma-offline`, trims the JAR. Needs network to GitHub + Maven Central; needs a JDK toolchain in the build env (the multi-stage Dockerfile bundles it). |
+| **URL** | `--build-arg KARMA_BUILD_STAGE=karma-from-url --build-arg KARMA_JAR_URL=…` | ~5 s | Downloads a pre-built, trimmed JAR from a GitHub Release asset. No JDK needed. |
+
+To use the URL mode, the `Build Karma JAR` GitHub Actions workflow must
+have been run at least once on the repo — see the **Releasing the JAR**
+section below. The workflow publishes a `karma-jar-latest` release whose
+asset URL is stable:
+
+```bash
+docker build -t sp-wp8 \
+  --build-arg KARMA_BUILD_STAGE=karma-from-url \
+  --build-arg KARMA_JAR_URL=https://github.com/MatteoDrso/rdf-matching-and-transformation-service/releases/download/karma-jar-latest/karma-offline-shaded.jar \
+  .
+```
+
+Optional in source mode: pin Karma to a specific commit at build time.
 
 ```bash
 docker build --build-arg KARMA_REF=<sha-or-branch> -t sp-wp8 .
 ```
+
+### Releasing the JAR
+
+The Karma JAR is a long-lived artefact that only changes when the
+upstream `KARMA_REF` is bumped or the trim exclude list in the
+Dockerfile / workflow changes. Re-publish it on demand:
+
+1. GitHub → repo → **Actions** → **Build Karma JAR** → **Run workflow**.
+2. Optional: change `karma_ref` (default `master`) or
+   `release_tag_suffix` (default = today's date in UTC).
+3. The workflow creates a `karma-jar-YYYY-MM-DD` release and moves the
+   floating `karma-jar-latest` tag onto it.
 
 ---
 

@@ -1,7 +1,30 @@
 # syntax=docker/dockerfile:1.7
+#
+# Two ways to provide the Karma JAR to the runtime image:
+#
+# 1. Default — build from upstream Web-Karma source (~30 s, needs JDK/Maven
+#    in the build environment):
+#
+#      docker build -t sp-wp8 .
+#
+# 2. Fast — download a pre-built JAR published by the `build-karma-jar`
+#    GitHub Actions workflow (~5 s, no JDK needed). Use this once you have
+#    run the workflow at least once and a `karma-jar-latest` release exists:
+#
+#      docker build -t sp-wp8 \
+#        --build-arg KARMA_BUILD_STAGE=karma-from-url \
+#        --build-arg KARMA_JAR_URL=https://github.com/MatteoDrso/rdf-matching-and-transformation-service/releases/download/karma-jar-latest/karma-offline-shaded.jar \
+#        .
+#
+# BuildKit only builds whichever of `karma-from-source` / `karma-from-url`
+# is named in `KARMA_BUILD_STAGE` — the other stage is pruned.
 
-# ── Stage 1: Karma JAR build ──────────────────────────────────────────────
-FROM maven:3.9-eclipse-temurin-11 AS karma-build
+ARG KARMA_BUILD_STAGE=karma-from-source
+ARG KARMA_JAR_URL=""
+
+
+# ── Stage A: build from source (default) ──────────────────────────────────
+FROM maven:3.9-eclipse-temurin-11 AS karma-from-source
 
 # Pin to a specific Karma revision for reproducibility. Override at build
 # time with --build-arg KARMA_REF=<sha-or-branch>.
@@ -35,6 +58,7 @@ RUN --mount=type=cache,target=/root/.m2 \
 # delete the unused payload directly from the JAR with `zip -d`. Keep:
 # Jython (`org/python/**` — pyTransform), Jena (`com/hp/hpl/**`), Lucene,
 # Guava, Jackson, commons-*, bouncycastle, Sesame/openrdf, edu/isi.
+# Keep this list in sync with .github/workflows/build-karma-jar.yml.
 RUN zip -d /tmp/karma.jar \
       'org/apache/spark/*' \
       'org/apache/hadoop/*' \
@@ -48,8 +72,34 @@ RUN zip -d /tmp/karma.jar \
       'org/openxmlformats/*' \
       'org/apache/cxf/*' \
       'org/apache/xmlbeans/*' \
+      'train/*' \
+      'org/geotools/*' \
+      'org/apache/sis/*' \
+      'ucar/*' \
+      'weka/*' \
+      'org/apache/pdfbox/*' \
     > /tmp/trim.log \
  && echo "JAR size after trim:" && ls -lh /tmp/karma.jar
+
+
+# ── Stage B: download from a pre-published release asset (opt-in) ─────────
+FROM debian:bookworm-slim AS karma-from-url
+ARG KARMA_JAR_URL
+RUN test -n "$KARMA_JAR_URL" \
+ || (echo "ERROR: set --build-arg KARMA_JAR_URL=<url> when KARMA_JAR_SOURCE=url" >&2 && exit 1)
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends curl ca-certificates \
+ && rm -rf /var/lib/apt/lists/* \
+ && curl -fsSL "$KARMA_JAR_URL" -o /tmp/karma.jar \
+ && ls -lh /tmp/karma.jar
+
+
+# ── Alias stage: select source vs url ─────────────────────────────────────
+# `FROM ${VAR}` is interpolated by BuildKit; `COPY --from=${VAR}` is not
+# (older buildkit semantics). The alias indirection works around that:
+# whichever of `karma-from-source` / `karma-from-url` matches KARMA_BUILD_STAGE
+# becomes `karma-build`, and the runtime stage copies from the fixed alias.
+FROM ${KARMA_BUILD_STAGE} AS karma-build
 
 
 # ── Stage 2: runtime ──────────────────────────────────────────────────────

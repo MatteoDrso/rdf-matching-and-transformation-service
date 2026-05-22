@@ -1,0 +1,121 @@
+name: Build Karma JAR
+
+# The Karma OfflineRdfGenerator shaded JAR is a long-lived artefact: it
+# changes only when we bump the upstream `KARMA_REF` or the trim exclude
+# list in the Dockerfile. We don't want every service-code commit to
+# republish it, so this workflow is intentionally manual — trigger it from
+# the Actions tab in GitHub when you actually need a fresh JAR.
+#
+# Output: a GitHub Release named `karma-jar-<date>` (plus the floating
+# `karma-jar-latest` tag) with `karma-offline-shaded.jar` attached. The
+# Dockerfile can then consume that asset via the optional
+# `KARMA_JAR_URL` build-arg.
+
+on:
+  workflow_dispatch:
+    inputs:
+      karma_ref:
+        description: 'Web-Karma git ref to build (sha or branch)'
+        required: true
+        default: 'master'
+      release_tag_suffix:
+        description: 'Suffix for the release tag (e.g. YYYY-MM-DD). Leave empty to use the run date.'
+        required: false
+        default: ''
+
+permissions:
+  # Required to create a Release and upload the asset.
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compute tag
+        id: meta
+        run: |
+          set -euo pipefail
+          suffix="${{ github.event.inputs.release_tag_suffix }}"
+          if [ -z "$suffix" ]; then suffix="$(date -u +%Y-%m-%d)"; fi
+          echo "tag=karma-jar-${suffix}" >> "$GITHUB_OUTPUT"
+          echo "Tag: karma-jar-${suffix}"
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 11
+          cache: maven
+
+      - name: Clone Web-Karma
+        run: |
+          git clone --depth 1 --branch "${{ github.event.inputs.karma_ref }}" \
+            https://github.com/usc-isi-i2/Web-Karma.git web-karma
+
+      - name: Build karma-offline shaded JAR
+        working-directory: web-karma
+        run: mvn -B -DskipTests -P shaded -pl karma-offline -am package
+
+      # Same exclude list as the Dockerfile's `zip -d` trim step. Keep these
+      # in sync — if you change one, change the other (or de-duplicate by
+      # extracting the list into a file consumed by both).
+      - name: Lean-trim the JAR
+        run: |
+          set -euo pipefail
+          cp web-karma/karma-offline/target/karma-offline-*-shaded.jar karma-offline-shaded.jar
+          zip -d karma-offline-shaded.jar \
+            'org/apache/spark/*' \
+            'org/apache/hadoop/*' \
+            'scala/*' \
+            'breeze/*' \
+            'spire/*' \
+            'netlib-native_*' \
+            'resources/grib1/*' \
+            'com/mysql/*' \
+            'org/apache/poi/*' \
+            'org/openxmlformats/*' \
+            'org/apache/cxf/*' \
+            'org/apache/xmlbeans/*' \
+            'train/*' \
+            'org/geotools/*' \
+            'org/apache/sis/*' \
+            'ucar/*' \
+            'weka/*' \
+            'org/apache/pdfbox/*' \
+            > /dev/null
+          ls -lh karma-offline-shaded.jar
+          sha256sum karma-offline-shaded.jar > karma-offline-shaded.jar.sha256
+
+      - name: Publish dated release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.tag }}
+          body: |
+            Pre-built Web-Karma `karma-offline` shaded JAR for the
+            RDF transformation service.
+
+            Built from: `usc-isi-i2/Web-Karma@${{ github.event.inputs.karma_ref }}`
+            Lean-trimmed (Spark/Hadoop/Scala/POI/JDBC/spatial/etc. removed)
+            so it stays small (~166 MB instead of ~326 MB).
+
+            Consume via the Dockerfile build-arg `KARMA_JAR_URL` pointing
+            at the asset URL below.
+          files: |
+            karma-offline-shaded.jar
+            karma-offline-shaded.jar.sha256
+
+      - name: Move floating `karma-jar-latest` tag
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: karma-jar-latest
+          name: karma-jar-latest
+          body: |
+            Floating alias — points to the most recent dated `karma-jar-*`
+            build. Re-published by the workflow on each run.
+
+            Asset URL is stable:
+              https://github.com/${{ github.repository }}/releases/download/karma-jar-latest/karma-offline-shaded.jar
+          files: |
+            karma-offline-shaded.jar
+            karma-offline-shaded.jar.sha256

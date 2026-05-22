@@ -28,12 +28,18 @@ needed.
 git clone https://github.com/MatteoDrso/rdf-matching-and-transformation-service.git
 cd rdf-matching-and-transformation-service
 
-docker build -t sp-wp8 .                                   # 10–15 min, one-time
+docker build -t sp-wp8 .                                   # ~30 s
 docker run --rm -p 8000:8000 --name rdf-transform sp-wp8   # foreground
 ```
 
 Service on http://127.0.0.1:8000 — Swagger UI at
 [`/docs`](http://127.0.0.1:8000/docs).
+
+The default build path compiles a trimmed Karma JAR (~166 MB) from
+upstream Web-Karma source. A faster path that downloads a pre-built JAR
+from a GitHub Release asset is available; see
+[`docs/running.md#docker-build-modes`](docs/running.md#docker-build-modes).
+The release is produced by the `Build Karma JAR` GitHub Actions workflow.
 
 Full setup, test, curl, Python and contributor-mode instructions live in
 **[`docs/running.md`](docs/running.md)**.
@@ -206,9 +212,20 @@ SP_WP8_SS26/
 | ---------------- | ---- | -------- | ---------------------------------------------- |
 | `dataset`        | file | yes      | CSV / TSV / JSON                               |
 | `mapping_schema` | file | yes      | Karma R2RML model (`*-model.ttl`)              |
-| `source_type`    | str  | no       | `CSV` (default), `JSON`, …                     |
+| `source_type`    | str  | no       | `CSV` (default), `JSON`, `XML`, `DB`           |
 | `delimiter`      | str  | no       | `COMMA` (default), `TAB`, `;`                  |
 | `output_format`  | str  | no       | `turtle` (default), `ntriples`, `jsonld`       |
+| `encoding`       | str  | no       | e.g. `UTF-8`, `ISO-8859-1` (Karma default)     |
+| `text_qualifier` | str  | no       | CSV quote char (e.g. `"`)                      |
+| `header_index`   | int  | no       | 1-based row where CSV header lives             |
+| `data_index`     | int  | no       | 1-based row where CSV data begins              |
+| `selection`      | str  | no       | Named selection inside the Karma model         |
+
+The optional fields mirror the Karma OfflineRdfGenerator CLI flags
+(`--encoding`, `--textqualifier`, `--headerindex`, `--dataindex`,
+`--selection`) documented in the upstream
+[Batch-Mode wiki](https://github.com/usc-isi-i2/Web-Karma/wiki/Batch-Mode-for-RDF-Generation).
+They are forwarded only when set; otherwise Karma uses its built-in defaults.
 
 **Response:**
 - `200 OK` with the generated RDF in the requested serialisation

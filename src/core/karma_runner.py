@@ -97,6 +97,11 @@ def run_karma(
     source_type: str = "CSV",
     delimiter: str = "COMMA",
     source_name: str = "source",
+    encoding: str | None = None,
+    text_qualifier: str | None = None,
+    header_index: int | None = None,
+    data_index: int | None = None,
+    selection: str | None = None,
     jar_path: Path | str | None = None,
     java_path: str | None = None,
     timeout_seconds: float | None = 300,
@@ -105,6 +110,12 @@ def run_karma(
 
     The caller owns the lifecycle of `dataset_path`, `model_path`, and the
     parent directory of `output_path` — typically a `tempfile.TemporaryDirectory`.
+
+    Optional CSV/JSON-source parameters mirror Karma's CLI flags documented at
+    https://github.com/usc-isi-i2/Web-Karma/wiki/Batch-Mode-for-RDF-Generation:
+    `encoding` → `--encoding`, `text_qualifier` → `--textqualifier`,
+    `header_index` → `--headerindex`, `data_index` → `--dataindex`,
+    `selection` → `--selection`. They are only forwarded when set.
 
     Raises:
         KarmaError: the JAR exited non-zero or produced no output file.
@@ -128,6 +139,16 @@ def run_karma(
         "--sourcename", source_name,
         "--outputfile", str(output),
     ]
+    if encoding is not None:
+        cmd += ["--encoding", encoding]
+    if text_qualifier is not None:
+        cmd += ["--textqualifier", text_qualifier]
+    if header_index is not None:
+        cmd += ["--headerindex", str(header_index)]
+    if data_index is not None:
+        cmd += ["--dataindex", str(data_index)]
+    if selection is not None:
+        cmd += ["--selection", selection]
 
     proc = subprocess.run(
         cmd,
