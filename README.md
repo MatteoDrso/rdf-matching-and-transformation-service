@@ -8,13 +8,14 @@ BiodivPipeline WP8 work-package, developed with InfAI and the BGBM.
 ## Quick start
 
 ```bash
-git clone https://github.com/MatteoDrso/rdf-matching-and-transformation-service.git
-cd rdf-matching-and-transformation-service
-docker build -t sp-wp8 .                                  # ~30 s
-docker run --rm -p 8000:8000 --name rdf-transform sp-wp8
+docker run --rm -p 8000:8000 --name rdf-transform \
+  ghcr.io/matteodrso/rdf-matching-and-transformation-service:latest
 ```
 
-Swagger UI at http://127.0.0.1:8000/docs.
+Pulls the published image (~340 MB) on first run, Swagger UI at
+http://127.0.0.1:8000/docs. To build the image locally instead
+(developing the service, pinning Karma source), clone and
+`docker build -t sp-wp8 .` — see [Docker build modes](#docker-build-modes).
 
 ## `POST /transform`
 
@@ -128,6 +129,11 @@ workflow**, give it a version like `0.1.0`, and the workflow publishes
 both `ghcr.io/matteodrso/rdf-matching-and-transformation-service:v0.1.0`
 (immutable) and `…:latest` (floating). Manual-only.
 
+GHCR packages are private by default. On the first publish, go to the
+repo's **Packages** sidebar → package settings → *Change visibility* →
+*Public*, otherwise the Quick Start `docker run` above and the nf-core
+module both need a registry login.
+
 The Nextflow module at [`nextflow/main.nf`](nextflow/main.nf) consumes
 the `:latest` image. It does **not** invoke Karma directly — instead
 each nf-task spins up the FastAPI service on `localhost:8000` inside
@@ -179,7 +185,7 @@ validated by `/validate` once wired up.
 
 ```
 .
-├── .github/workflows/build-karma-jar.yml   # JAR build + release workflow
+├── .github/workflows/                      # CI: build-karma-jar + build-service-image
 ├── Dockerfile                              # two build modes (source / url)
 ├── main.py                                 # uvicorn entrypoint
 ├── src/
