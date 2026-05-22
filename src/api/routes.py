@@ -32,6 +32,21 @@ _FORMAT_TO_RDFLIB = {
 }
 
 
+def _strip_placeholder(value: Optional[str]) -> Optional[str]:
+    """Treat Swagger UI's auto-filled "string" and empty input as missing."""
+    if value is None or value == "" or value == "string":
+        return None
+    return value
+
+
+def _strip_int_placeholder(value: Optional[int]) -> Optional[int]:
+    """Treat Swagger UI's auto-filled 0 as missing — Karma uses 1-based row
+    indexes, so 0 carries no useful meaning here."""
+    if value is None or value == 0:
+        return None
+    return value
+
+
 @router.get("/", response_model=HealthResponse)
 def health() -> HealthResponse:
     return HealthResponse(status="ok", version="0.1.0", ontologies=[])
@@ -82,6 +97,18 @@ async def transform(
         output_path = tmp_dir / "output.nt"
         dataset_path.write_bytes(dataset_bytes)
         model_path.write_bytes(model_bytes)
+
+        # Swagger UI auto-fills Optional[str] form fields with the literal
+        # placeholder "string" and Optional[int] fields with 0. Users who
+        # don't manually clear those values end up sending nonsensical
+        # input (e.g. --encoding=string, --headerindex=0) which makes
+        # Karma silently produce no row-bound triples. Normalise both
+        # placeholders, and the empty string, back to "not provided".
+        encoding = _strip_placeholder(encoding)
+        text_qualifier = _strip_placeholder(text_qualifier)
+        selection = _strip_placeholder(selection)
+        header_index = _strip_int_placeholder(header_index)
+        data_index = _strip_int_placeholder(data_index)
 
         try:
             result = await asyncio.to_thread(
