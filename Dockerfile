@@ -2,25 +2,23 @@
 #
 # Two ways to provide the Karma JAR to the runtime image:
 #
-# 1. Default — build from upstream Web-Karma source (~30 s, needs JDK/Maven
-#    in the build environment):
+# 1. Default — download the pre-built JAR published by the `build-karma-jar`
+#    GitHub Actions workflow (~5 s, no JDK needed in the build env):
 #
 #      docker build -t sp-wp8 .
 #
-# 2. Fast — download a pre-built JAR published by the `build-karma-jar`
-#    GitHub Actions workflow (~5 s, no JDK needed). Use this once you have
-#    run the workflow at least once and a `karma-jar-latest` release exists:
+# 2. From source — build the JAR with Maven inside the image (~30 s, needs
+#    network access to GitHub + Maven Central). Useful when bumping
+#    KARMA_REF, iterating on the JAR-trim list, or when the published
+#    release is unavailable:
 #
-#      docker build -t sp-wp8 \
-#        --build-arg KARMA_BUILD_STAGE=karma-from-url \
-#        --build-arg KARMA_JAR_URL=https://github.com/MatteoDrso/rdf-matching-and-transformation-service/releases/download/karma-jar-latest/karma-offline-shaded.jar \
-#        .
+#      docker build -t sp-wp8 --build-arg KARMA_BUILD_STAGE=karma-from-source .
 #
 # BuildKit only builds whichever of `karma-from-source` / `karma-from-url`
 # is named in `KARMA_BUILD_STAGE` — the other stage is pruned.
 
-ARG KARMA_BUILD_STAGE=karma-from-source
-ARG KARMA_JAR_URL=""
+ARG KARMA_BUILD_STAGE=karma-from-url
+ARG KARMA_JAR_URL=https://github.com/MatteoDrso/rdf-matching-and-transformation-service/releases/download/karma-jar-latest/karma-offline-shaded.jar
 
 
 # ── Stage A: build from source (default) ──────────────────────────────────

@@ -88,20 +88,19 @@ verified isomorphic against the InfAI ground-truth sample.
 
 ## Docker build modes
 
-Default — build the JAR inline:
+Default — download the published JAR from the `karma-jar-latest` release
+(~30 s, no JDK needed in the build env):
 
 ```bash
 docker build -t sp-wp8 .
 ```
 
-Once the `Build Karma JAR` workflow has run at least once, the JAR can
-be downloaded instead (~5 s, no JDK needed in the build env):
+To build the JAR from upstream Web-Karma source instead — useful when
+bumping `KARMA_REF`, iterating on the trim list, or when the release is
+unavailable:
 
 ```bash
-docker build -t sp-wp8 \
-  --build-arg KARMA_BUILD_STAGE=karma-from-url \
-  --build-arg KARMA_JAR_URL=https://github.com/MatteoDrso/rdf-matching-and-transformation-service/releases/download/karma-jar-latest/karma-offline-shaded.jar \
-  .
+docker build -t sp-wp8 --build-arg KARMA_BUILD_STAGE=karma-from-source .
 ```
 
 ## Karma JAR via GitHub Actions
