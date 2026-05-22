@@ -105,9 +105,11 @@ java -cp karma-offline-0.0.1-SNAPSHOT-shaded.jar \
 
 ### Obtaining the JAR
 
-The `karma-offline-*-shaded.jar` is **not** distributed via GitHub releases —
-the upstream `usc-isi-i2/Web-Karma` repository was archived on 16 April 2025.
-Build it from source once and place it under `lib/` locally:
+The `karma-offline-*-shaded.jar` is **not** distributed via the upstream
+Web-Karma project — the `usc-isi-i2/Web-Karma` repository was archived on
+16 April 2025. You have two options:
+
+**(a) Build locally — for `lib/`-based Python iteration:**
 
 ```bash
 git clone https://github.com/usc-isi-i2/Web-Karma.git
@@ -117,6 +119,60 @@ cp karma-offline/target/karma-offline-*-shaded.jar /path/to/SP_WP8_SS26/lib/
 ```
 
 `lib/*.jar` is git-ignored. See [lib/README.md](lib/README.md).
+
+**(b) Use the `Build Karma JAR` GitHub Actions workflow — for sharing
+a single trimmed JAR across the team / nf-core pipeline:**
+
+This repo ships a workflow at
+[`.github/workflows/build-karma-jar.yml`](.github/workflows/build-karma-jar.yml)
+that runs the same Maven build + trim that the Dockerfile does, then
+attaches the resulting JAR (~166 MB instead of the raw ~326 MB) to a
+GitHub Release.
+
+**Where to find it:**
+
+```
+GitHub repo  →  Actions (top tab)  →  Build Karma JAR (left sidebar)
+            →  Run workflow ▾  (top right)  →  Run workflow ▶
+```
+
+The workflow is `workflow_dispatch`-triggered — it only runs when you
+click that button, never automatically. Two optional inputs:
+
+| Input                  | Default            | Purpose                                                    |
+| ---------------------- | ------------------ | ---------------------------------------------------------- |
+| `karma_ref`            | `master`           | Web-Karma git ref (sha or branch) to build                 |
+| `release_tag_suffix`   | today's UTC date   | Appended to the release tag, e.g. `karma-jar-2026-05-22`   |
+
+After ~2–3 min you get two GitHub Releases:
+
+- `karma-jar-<date>` — the immutable dated build.
+- `karma-jar-latest` — a floating alias that always points at the most
+  recent build. The asset URL is stable, which is what we consume.
+
+**What it nets you:**
+
+- **Reproducibility** — the JAR is built once with a recorded Karma ref
+  and a recorded sha256 of the resulting artefact, then everyone uses
+  the same bytes. No more "works on my machine" variations from Maven
+  resolving dependencies differently across developers.
+- **Faster Docker builds** — feed the asset URL into the Dockerfile via
+  `--build-arg KARMA_BUILD_STAGE=karma-from-url --build-arg KARMA_JAR_URL=…`
+  and the runtime image builds in ~5 s with no JDK toolchain involved.
+  Useful for the nf-core pipeline container especially.
+- **Sharable artefact** — the JAR has a public URL anyone can pull
+  (including a future nf-core CI), no need to rebuild it in every
+  consumer's pipeline.
+
+> **Note on the repo move.** Once this repo is folded into the nf-core
+> pipeline, the workflow file moves with it; the trigger button stays
+> in the same place under `Actions → Build Karma JAR` of the new
+> hosting repo. The asset URL pattern becomes
+> `https://github.com/<new-owner>/<new-repo>/releases/download/karma-jar-latest/karma-offline-shaded.jar`.
+> The workflow itself uses `${{ github.repository }}` internally, so
+> nothing inside the workflow file has to change on the move; only the
+> sample URLs in this README and in `Dockerfile`/`docs/running.md`
+> need a search-and-replace.
 
 ---
 

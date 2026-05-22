@@ -45,7 +45,12 @@ jobs:
         with:
           distribution: temurin
           java-version: 11
-          cache: maven
+          # No `cache: maven` here — the setup-java cache looks for
+          # pom.xml in the workflow workspace at *setup time*, but our
+          # pom.xml only appears after the next step clones Web-Karma.
+          # The workflow is rare enough (~monthly) that the ~30 s a warm
+          # ~/.m2 cache would save isn't worth wiring `actions/cache`
+          # manually around the clone step.
 
       - name: Clone Web-Karma
         run: |
