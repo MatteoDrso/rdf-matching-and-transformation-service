@@ -10,8 +10,11 @@ EXAMPLES = Path(__file__).resolve().parents[1] / "examples"
 
 
 @pytest.fixture
-def client() -> TestClient:
-    return TestClient(app)
+def client():
+    # `with TestClient(app)` triggers FastAPI lifespan startup/shutdown
+    # so `app.state.ontologies` is populated for /validate and /.
+    with TestClient(app) as c:
+        yield c
 
 
 def _karma_available() -> bool:

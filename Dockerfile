@@ -107,7 +107,8 @@ FROM python:3.11-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    KARMA_JAR=/app/lib/karma-offline-shaded.jar
+    KARMA_JAR=/app/lib/karma-offline-shaded.jar \
+    KARMA_ONTOLOGIES_DIR=/app/ontologies
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends default-jre-headless tini \
@@ -119,6 +120,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY --from=karma-build /tmp/karma.jar ${KARMA_JAR}
+
+# Reference ontologies for /validate L3 (alignment check). The loader
+# filters by extension, so the README.md sitting alongside is harmless.
+# Drop more .owl/.ttl files into examples/ontologies/ to extend coverage.
+COPY examples/ontologies /app/ontologies
 
 COPY main.py ./
 COPY src ./src

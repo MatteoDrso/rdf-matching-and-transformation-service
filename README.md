@@ -47,8 +47,35 @@ curl -X POST http://127.0.0.1:8000/transform \
   -o out.ttl
 ```
 
-Other endpoints: `GET /` (health), `GET /schemas` (lists supported model
-formats), `POST /validate` (501, not yet wired up).
+Other endpoints: `GET /` (health, also reports loaded ontologies),
+`GET /schemas` (lists supported model formats), `POST /validate`.
+
+## `POST /validate`
+
+Pre-flight check for a mapping model. Catches three classes of problem
+*before* `/transform` produces RDF that points into the void:
+
+- **L1** — does the file parse as Turtle?
+- **L2** — is it actually a Karma R2RML model (`km-dev:R2RMLMapping`
+  resource with a `km-dev:sourceName`)?
+- **L3** — does every IRI the model references in a loaded ontology's
+  namespace (OBOE today) actually exist there? Catches typos like
+  `oboe-core:Observatoin` and references to renamed/removed upstream
+  classes.
+
+```bash
+curl -X POST http://127.0.0.1:8000/validate \
+  -F "mapping_schema=@examples/plant_height_vegetative_raw-model_oboe.ttl"
+# → {"valid": true, "issues": []}
+```
+
+Any finding sets `valid: false` and lists the issues with an `[L1]` /
+`[L2]` / `[L3]` prefix. Reference ontologies are loaded once at
+service start from `$KARMA_ONTOLOGIES_DIR` (default
+`/app/ontologies` in the container, `examples/ontologies/` locally);
+drop additional `.owl` / `.ttl` files in there to extend L3 coverage
+(e.g. Darwin Core, ABCD, BiodivOntology once the upstream artefacts
+are available).
 
 ## Karma
 

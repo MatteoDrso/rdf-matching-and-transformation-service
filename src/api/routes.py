@@ -4,11 +4,13 @@ import tempfile
 from pathlib import Path
 from typing import Optional
 
-from fastapi import APIRouter, File, Form, HTTPException, Response, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, Response, UploadFile
 from rdflib import Graph
 
 from src.api.models import HealthResponse, SchemasResponse, ValidateResponse
 from src.core.karma_runner import KarmaError, run_karma
+from src.core.model_validator import validate_model
+from src.core.ontology_loader import LoadedOntologies
 
 router = APIRouter()
 
@@ -47,9 +49,20 @@ def _strip_int_placeholder(value: Optional[int]) -> Optional[int]:
     return value
 
 
+def get_ontologies(request: Request) -> LoadedOntologies:
+    """Pull the LoadedOntologies index attached by main.py's lifespan event.
+    Declared as a FastAPI dependency so tests can override it without
+    needing a real startup cycle."""
+    return request.app.state.ontologies
+
+
 @router.get("/", response_model=HealthResponse)
-def health() -> HealthResponse:
-    return HealthResponse(status="ok", version="0.1.0", ontologies=[])
+def health(ontologies: LoadedOntologies = Depends(get_ontologies)) -> HealthResponse:
+    return HealthResponse(
+        status="ok",
+        version="0.1.0",
+        ontologies=list(ontologies.sources),
+    )
 
 
 @router.get("/schemas", response_model=SchemasResponse)
@@ -154,5 +167,21 @@ async def transform(
 
 
 @router.post("/validate", response_model=ValidateResponse)
-async def validate(mapping_schema: UploadFile = File(...)) -> ValidateResponse:
-    raise HTTPException(status_code=501, detail="Not yet implemented")
+async def validate(
+    mapping_schema: UploadFile = File(...),
+    ontologies: LoadedOntologies = Depends(get_ontologies),
+) -> ValidateResponse:
+    """Pre-flight check of a Karma R2RML mapping model:
+
+    - L1 — the file parses as Turtle
+    - L2 — the file declares a `km-dev:R2RMLMapping` with a `sourceName`
+    - L3 — every IRI in a known ontology namespace is actually declared
+      there (catches typos and stale model references)
+
+    See `src/core/model_validator.py` for the implementation. A clean
+    model returns `{"valid": true, "issues": []}`; any finding flips
+    `valid` to false and lists the specific issues.
+    """
+    model_bytes = await mapping_schema.read()
+    result = validate_model(model_bytes, ontologies)
+    return ValidateResponse(valid=result.valid, issues=result.issues)
