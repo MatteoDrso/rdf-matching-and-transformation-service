@@ -119,12 +119,31 @@ so moving this repo into another GitHub org (e.g. the nf-core pipeline)
 needs no changes inside the workflow file itself — only the sample URL
 above and the Dockerfile comment.
 
+## Service image + nf-core module
+
+`.github/workflows/build-service-image.yml` builds the runtime image
+(FastAPI + Karma JAR + OBOE) and pushes it to GitHub Container Registry.
+Trigger from the GitHub UI: **Actions → Build Service Image → Run
+workflow**, give it a version like `0.1.0`, and the workflow publishes
+both `ghcr.io/matteodrso/rdf-matching-and-transformation-service:v0.1.0`
+(immutable) and `…:latest` (floating). Manual-only.
+
+The Nextflow module at [`nextflow/main.nf`](nextflow/main.nf) consumes
+the `:latest` image. It does **not** invoke Karma directly — instead
+each nf-task spins up the FastAPI service on `localhost:8000` inside
+its own container, calls `/validate` as a pre-flight check, then hits
+`/transform` for the actual work. Same code path the WP7 Schema Editor
+and any HTTP consumer goes through, so error responses look identical
+no matter who's calling. The pre-flight aborts the task if the mapping
+model has drifted from OBOE (override with `task.ext.skip_validate =
+true`).
+
 ## Local development
 
 ```bash
 python3.11 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-pytest                                    # 7 tests, ~1 s
+pytest                                    # 20 tests, ~2 s
 uvicorn main:app --reload                 # local server on :8000
 ```
 

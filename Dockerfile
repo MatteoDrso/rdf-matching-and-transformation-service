@@ -109,7 +109,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     KARMA_ONTOLOGIES_DIR=/app/ontologies
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends default-jre-headless tini \
+ && apt-get install -y --no-install-recommends default-jre-headless tini curl \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

@@ -1,33 +1,45 @@
 name: rdf_transform
-description: Transform tabular biodiversity records into RDF triples per a mapping schema
+description: |
+  Transform a tabular biodiversity dataset into RDF triples via the WP8
+  RDF Matching and Transformation Service. Internally calls /validate
+  (against the loaded OBOE ontology) before /transform, so a model that
+  has drifted from the ontology aborts the task instead of producing
+  RDF pointing at undefined terms.
 keywords:
   - rdf
   - biodiversity
+  - karma
+  - oboe
   - darwin core
-  - abcd
   - transformation
 
 input:
   - meta:
       type: map
-      description: Groovy Map with sample id (e.g. [ id: 'sample1' ])
+      description: 'Groovy Map with sample id, e.g. [ id: ''sample1'' ]'
   - dataset:
       type: file
-      description: Input dataset (CSV or JSON)
-      pattern: "*.{csv,json}"
+      description: Tabular input — CSV, TSV, JSON or XML.
+      pattern: "*.{csv,tsv,json,xml}"
   - schema:
       type: file
-      description: Mapping schema (JSON-LD or Turtle)
-      pattern: "*.{jsonld,ttl}"
+      description: Karma R2RML mapping model produced by the WP7 Schema Editor.
+      pattern: "*.{ttl}"
 
 output:
   - rdf:
       type: file
-      description: Generated RDF triples
-      pattern: "*.{ttl,jsonld}"
+      description: Generated RDF in the requested serialisation (turtle / ntriples / jsonld).
+      pattern: "*.{ttl,nt,jsonld}"
+  - validate:
+      type: file
+      description: |
+        JSON response from /validate — useful for downstream logging or
+        for surfacing model-quality information without re-running.
+      pattern: "validate.json"
   - versions:
       type: file
-      description: File containing software versions
+      description: Version stamp emitted by the service's GET / endpoint.
       pattern: "versions.yml"
 
 authors:
